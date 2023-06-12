@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 8f;
+    [SerializeField] private float speed = 0.1f;
     [SerializeField] private MovementType movementType;
     
 
@@ -26,26 +26,23 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMovement(InputValue input)
     {
-        print("onMovement is called");
         Vector2 inputValue = input.Get<Vector2>();
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
     }
 
-    void OnJump(InputValue input) 
+    void OnJump(InputValue input)
     {
-        print("on Jump is called");
         if (isJumpingOrFalling)
             return;
         GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
     }
 
-    /*void Update()
+    void Update()
     {
         ExecuteMovement();
     }
-    */
 
-    /*void ExecuteMovement()
+    void ExecuteMovement()
     {
         isJumpingOrFalling = GetComponent<Rigidbody>().velocity.y < -.035 ||
                              GetComponent<Rigidbody>().velocity.y > 0.00001;
@@ -54,18 +51,18 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
         else
             isMoving = true;
-        
+
 
         if (!isMoving)
         {
-            print("not moving");
             transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.z, 0);
             return;
         }
 
         if (movementType == MovementType.TransformBased)
-        {
-            print("is being transformed");
+        { RotatePlayerFigure(moveBy);
+            
+            //transform.position += moveBy * (speed * Time.deltaTime);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
         }
         else if (movementType == MovementType.PhysicsBased)
@@ -73,7 +70,23 @@ public class PlayerMovement : MonoBehaviour
             var rigidbody = this.GetComponent<Rigidbody>();
             rigidbody.AddForce(moveBy * 2, ForceMode.Acceleration);
         }
-    }*/
+    }
+    
+    private void RotatePlayerFigure(Vector3 rotateVector)
+    {
+        rotateVector = Vector3.Normalize(rotateVector); //insure that only a directional value on gamepad
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.z, 0);
+        var rotationY = 90 * rotateVector.x;    
+        
+        if (rotateVector.z < 0)
+        {
+            transform.Rotate(0, 180, 0);
+            rotationY *= -1;
+        }
+        
+        transform.Rotate(0, rotationY, 0);
 
-   
+    
+    }
+    
 }
