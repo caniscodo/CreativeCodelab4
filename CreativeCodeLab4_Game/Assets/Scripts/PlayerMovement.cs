@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private MovementType movementType;
+    [SerializeField] private float rotationSpeed = 180f;
+
     
 
     private Vector3 moveBy;
@@ -44,49 +46,40 @@ public class PlayerMovement : MonoBehaviour
 
     void ExecuteMovement()
     {
-        isJumpingOrFalling = GetComponent<Rigidbody>().velocity.y < -.035 ||
-                             GetComponent<Rigidbody>().velocity.y > 0.00001;
+        isJumpingOrFalling = GetComponent<Rigidbody>().velocity.y < -0.035f ||
+                             GetComponent<Rigidbody>().velocity.y > 0.00001f;
 
         if (moveBy == Vector3.zero)
             isMoving = false;
         else
             isMoving = true;
 
-
         if (!isMoving)
         {
-            transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.z, 0);
             return;
         }
 
         if (movementType == MovementType.TransformBased)
-        { RotatePlayerFigure(moveBy);
-            
-            //transform.position += moveBy * (speed * Time.deltaTime);
-            transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+        {
+            RotatePlayerFigure(moveBy.normalized);
+            Vector3 movement = moveBy * speed * Time.deltaTime;
+            transform.Translate(movement, Space.World);
         }
         else if (movementType == MovementType.PhysicsBased)
         {
-            var rigidbody = this.GetComponent<Rigidbody>();
-            rigidbody.AddForce(moveBy * 2, ForceMode.Acceleration);
+            // Remove physics-based movement code
         }
     }
-    
-    private void RotatePlayerFigure(Vector3 rotateVector)
+
+    private void RotatePlayerFigure(Vector3 moveDirection)
     {
-        rotateVector = Vector3.Normalize(rotateVector); //insure that only a directional value on gamepad
-        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.z, 0);
-        var rotationY = 90 * rotateVector.x;    
-        
-        if (rotateVector.z < 0)
+        if (moveDirection != Vector3.zero)
         {
-            transform.Rotate(0, 180, 0);
-            rotationY *= -1;
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
-        
-        transform.Rotate(0, rotationY, 0);
+    }
 
     
-    }
-    
 }
+
