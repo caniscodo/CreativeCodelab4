@@ -24,9 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    void OnMovement(InputValue input)
+    public void OnMovement(InputValue input)
     {
         Vector2 inputValue = input.Get<Vector2>();
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
@@ -39,12 +41,12 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
     }
 
-    void Update()
+    public void Update()
     {
         ExecuteMovement();
     }
 
-    void ExecuteMovement()
+    public void ExecuteMovement()
     {
         isJumpingOrFalling = GetComponent<Rigidbody>().velocity.y < -0.035f ||
                              GetComponent<Rigidbody>().velocity.y > 0.00001f;
@@ -62,13 +64,16 @@ public class PlayerMovement : MonoBehaviour
         if (movementType == MovementType.TransformBased)
         {
             RotatePlayerFigure(moveBy.normalized);
-            Vector3 movement = moveBy * speed * Time.deltaTime;
+
+
+            Vector3 forwardMovement = transform.TransformDirection(Vector3.forward) * moveBy.z;
+            //player not moving in relative z axis
+            Vector3 sideMovement = transform.TransformDirection(Vector3.right) * moveBy.x;
+            Vector3 movement = (forwardMovement + sideMovement) * speed * Time.deltaTime;
+            
             transform.Translate(movement, Space.World);
         }
-        else if (movementType == MovementType.PhysicsBased)
-        {
-            // Remove physics-based movement code
-        }
+
     }
 
     private void RotatePlayerFigure(Vector3 moveDirection)
