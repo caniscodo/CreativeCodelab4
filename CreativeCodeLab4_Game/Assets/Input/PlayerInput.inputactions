@@ -92,6 +92,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "CameraMovement",
+            "id": "04b077f0-f624-4d03-9028-a71fd7141686",
+            "actions": [
+                {
+                    "name": "CameraMovement",
+                    "type": "Button",
+                    "id": "ac4ef080-58a4-48e1-b276-712d6d38184b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ff72e0fc-6ec3-440b-9bf3-d2bbf71f981c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
