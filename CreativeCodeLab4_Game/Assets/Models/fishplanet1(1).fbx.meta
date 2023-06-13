@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 66a1db7af9e7ba4419a611a1aca88bae
+guid: 074960715d6daf14a9a9a23cc1a5ac47
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -16,8 +16,7 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'RightUpperLeg' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -25,14 +24,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|ArmatureAction.001
+      takeName: Armature|ArmatureAction.001
+      internalID: -1422011007694221501
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -81,42 +109,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: fishplanet1(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Fish
-      parentName: fishplanet1(Clone)
-      position: {x: -3.1590207, y: -0.0000000037252903, z: -2.473434}
-      rotation: {x: -0.5, y: 0.49999997, z: 0.5, w: 0.5}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Armature
-      parentName: fishplanet1(Clone)
-      position: {x: -3.159021, y: 0, z: -5.6324553}
-      rotation: {x: -0.5, y: 0.49999997, z: 0.5, w: 0.5}
-      scale: {x: 100, y: 100, z: 100}
-    - name: Bone
-      parentName: Armature
-      position: {x: -0.037977997, y: -0.0000000015646219, z: -2.2351741e-10}
-      rotation: {x: -0.6189637, y: -0.62068063, z: -0.33882195, w: 0.3418174}
-      scale: {x: 1, y: 1.0000001, z: 0.9999999}
-    - name: Bone.002
-      parentName: Bone
-      position: {x: -1.0913936e-11, y: 0.012710199, z: -1.16415315e-11}
-      rotation: {x: 0.36846495, y: 0.0006374716, z: 0.5212776, w: 0.769742}
-      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
-    - name: Bone.001
-      parentName: Bone.002
-      position: {x: 5.401671e-10, y: 0.025139999, z: -0.0000000017834827}
-      rotation: {x: 0.00803138, y: -0.00000013391276, z: -0.000147311, w: 0.99996775}
-      scale: {x: 1.0000002, y: 0.9999998, z: 1}
-    - name: Bone.003
-      parentName: Bone
-      position: {x: -8.38682e-12, y: -0.0000000023901423, z: -2.7872796e-11}
-      rotation: {x: -0.00916855, y: -0.002441153, z: -0.999955, w: 0.000022381544}
-      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -127,13 +120,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
