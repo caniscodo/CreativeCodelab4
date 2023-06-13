@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +27,7 @@ public class ScenePartLoader : MonoBehaviour
                 Scene scene = SceneManager.GetSceneAt(i);
                 if (scene.name == gameObject.name)
                 {
+                    print(scene.name);
                     isLoaded = true;
                 }
             }
@@ -50,6 +52,7 @@ public class ScenePartLoader : MonoBehaviour
         //Checking if the player is within the range
         if (Vector3.Distance(player.position, transform.position) < loadRange)
         {
+            
             LoadScene();
         }
         else
@@ -62,17 +65,19 @@ public class ScenePartLoader : MonoBehaviour
     {
         if (!isLoaded)
         {
+            print(gameObject.name);
             //Loading the scene, using the gameobject name as it's the same as the name of the scene to load
             SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
             //We set it to true to avoid loading the scene twice
             isLoaded = true;
         }
+        
     }
 
     void UnLoadScene()
     {
         if (isLoaded)
-        {
+        {print(gameObject.name);
             SceneManager.UnloadSceneAsync(gameObject.name);
             isLoaded = false;
         }

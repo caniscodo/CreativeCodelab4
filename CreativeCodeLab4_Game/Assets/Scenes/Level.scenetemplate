@@ -19,18 +19,18 @@ MonoBehaviour:
   dependencies:
   - dependency: {fileID: -944628639613478452, guid: a50b7aba172590f40bb5b044eba3e370, type: 3}
     instantiationMode: 1
-  - dependency: {fileID: 2800000, guid: 3028dc075ba8c584d9bc7d1e0255e038, type: 3}
+  - dependency: {fileID: 11400000, guid: ed833d61ce8abc74c926290768e90605, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 40265a896a0f341bb956e90c59025a29, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2100000, guid: 816064909664a114db880ae29a38ae98, type: 2}
     instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 5f2a108eb023faf43a809979fd3d38f2, type: 3}
+    instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 504f32570fc9aa74a835d2be51d70a02, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 8663133919196486353, guid: 6c7a479cf98eeb3498b7bbf8bdab9d44, type: 3}
     instantiationMode: 0
-  - dependency: {fileID: 2800000, guid: 40265a896a0f341bb956e90c59025a29, type: 3}
-    instantiationMode: 1
-  - dependency: {fileID: 2800000, guid: 5f2a108eb023faf43a809979fd3d38f2, type: 3}
-    instantiationMode: 1
   templatePipeline: {fileID: 0}
   badge: {fileID: 2800000, guid: fd12dbe3b63ae464f824b4a74c0e1766, type: 3}
   addToDefaults: 0
