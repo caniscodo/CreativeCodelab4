@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private MovementType movementType;
     /*[SerializeField] private float rotationSpeed = 180f;*/
-    [SerializeField] private float jumpForce = 10f;
-
+    [SerializeField] private float jumpForce = 5f;
+    
     
     private Vector3 moveBy;
     private bool isMoving;
     private bool isJumpingOrFalling;
+    private bool isColliding;
+    private float initialJumpForce;
 
     // Start is called before the first frame update
 
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        initialJumpForce = jumpForce;
     }
 
     public void OnMovement(InputValue input)
@@ -36,16 +40,44 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue input)
     {
-        if (isJumpingOrFalling)
-            return;
-        GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+        if (isColliding)
+        {
+                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+                jumpForce = initialJumpForce;
+        }
+        
+        else if(!isColliding) 
+        {
+            if (jumpForce >= 1)
+            {
+               GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+                           jumpForce--; 
+            } else
+            {
+                GetComponent<Rigidbody>().AddForce(0, 0, 0, ForceMode.VelocityChange);
+            }
+            
+            
+        }
+         
     }
+    
 
     void OnLook(InputValue value)
     {
         Vector2 inputValue = value.Get<Vector2>();
         transform.Rotate(0, inputValue.x, 0);
 
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        isColliding = true;
+    }
+
+    public void OnCollisionExit(Collision other)
+    {
+        isColliding = false;
     }
 
     public void Update()

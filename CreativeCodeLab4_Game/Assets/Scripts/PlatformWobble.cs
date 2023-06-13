@@ -16,24 +16,23 @@ public class PlatformWobble : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody platformRigidbody = GetComponent<Rigidbody>();
 
-            // Calculate the side the player is currently on
+          
             Vector3 playerPosition = collision.gameObject.transform.position;
             Vector3 platformPosition = transform.position;
             float side = Mathf.Sign(playerPosition.x - platformPosition.x);
 
-            // Calculate the weight based on the player's mass
+           
             Rigidbody playerRigidbody = collision.gameObject.GetComponent<Rigidbody>();
             float playerMass = playerRigidbody.mass;
             float playerWeight = playerMass * weight;
 
-            // Update the total weight on the platform
             totalWeight += playerWeight * side;
 
-            // Apply torque to the platform based on the total weight
             platformRigidbody.AddTorque(Vector3.up * totalWeight, ForceMode.Force);
         }
     }
