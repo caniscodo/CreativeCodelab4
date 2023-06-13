@@ -1,52 +1,45 @@
+using System;
 using UnityEngine;
 
 public class PlatformWobble : MonoBehaviour
 {
-    public float rotationSpeed = 0.5f;
-    public float shiftDuration = 0.01f;
-    private bool shouldRotate = false;
-    private Vector3 initialPosition;
-    private Quaternion initialRotation; //!!
-
-    private void Start()
+    void Start()
     {
         initialPosition = transform.position;
-        initialRotation = transform.rotation;
     }
+
+    private Vector3 initialPosition;
+
+   public float weight = 1.0f;
+   
+    private float totalWeight = 0.0f;
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            shouldRotate = true;
+            Rigidbody platformRigidbody = GetComponent<Rigidbody>();
+
+            // Calculate the side the player is currently on
+            Vector3 playerPosition = collision.gameObject.transform.position;
+            Vector3 platformPosition = transform.position;
+            float side = Mathf.Sign(playerPosition.x - platformPosition.x);
+
+            // Calculate the weight based on the player's mass
+            Rigidbody playerRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            float playerMass = playerRigidbody.mass;
+            float playerWeight = playerMass * weight;
+
+            // Update the total weight on the platform
+            totalWeight += playerWeight * side;
+
+            // Apply torque to the platform based on the total weight
+            platformRigidbody.AddTorque(Vector3.up * totalWeight, ForceMode.Force);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision other)
     {
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            shouldRotate = false;
-        }
-        
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
+        initialPosition = transform.position;
     }
-
-    void Update()
-    {
-        if (shouldRotate)
-        {
-
-            float rotationAxis = Input.GetAxis("Horizontal");
-        
-            float rotationAmount = rotationSpeed * rotationAxis * Time.deltaTime;
-         
-            transform.Rotate(Vector3.right, rotationAmount);
-        }
-    }
-
-
 }

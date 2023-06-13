@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private MovementType movementType;
-    [SerializeField] private float rotationSpeed = 180f;
+    /*[SerializeField] private float rotationSpeed = 180f;*/
     [SerializeField] private float jumpForce = 10f;
 
     
