@@ -28,8 +28,11 @@ public class PlatformMovement : MonoBehaviour
     {
         if (passedMovementTime >= timeForMovement)
             ChangeMovementDirection();
-        transform.position =
-            Vector3.Lerp(currentStartPosition, currentTargetPosition, passedMovementTime / timeForMovement);
+
+        float t = passedMovementTime / timeForMovement;
+        float easedT = 1f - Mathf.Pow(1f - t, 2f); 
+
+        transform.position = Vector3.Lerp(currentStartPosition, currentTargetPosition, easedT);
         passedMovementTime += Time.deltaTime;
     }
 
@@ -48,4 +51,5 @@ public class PlatformMovement : MonoBehaviour
         passedMovementTime = 0;
         moveForward = !moveForward;
     }
+
 }
