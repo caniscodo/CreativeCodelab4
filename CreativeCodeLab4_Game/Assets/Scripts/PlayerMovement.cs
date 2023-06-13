@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private MovementType movementType;
     [SerializeField] private float rotationSpeed = 180f;
+    [SerializeField] private float jumpForce = 10f;
 
     
-
     private Vector3 moveBy;
     private bool isMoving;
     private bool isJumpingOrFalling;
@@ -38,11 +38,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumpingOrFalling)
             return;
-        GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
+        GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+    }
+
+    void OnLook(InputValue value)
+    {
+        Vector2 inputValue = value.Get<Vector2>();
+        transform.Rotate(0, inputValue.x, 0);
+
     }
 
     public void Update()
     {
+        print(transform.rotation);
+        
         ExecuteMovement();
     }
 
@@ -63,12 +72,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (movementType == MovementType.TransformBased)
         {
-            RotatePlayerFigure(moveBy.normalized);
+            /*RotatePlayerFigure(moveBy.normalized);*/
 
 
-            Vector3 forwardMovement = transform.TransformDirection(Vector3.forward) * moveBy.z;
-            //player not moving in relative z axis
-            Vector3 sideMovement = transform.TransformDirection(Vector3.right) * moveBy.x;
+            Vector3 forwardMovement = transform.forward * moveBy.z;
+            //player not moving in relative z
+            Vector3 sideMovement = transform.right * moveBy.x;
             Vector3 movement = (forwardMovement + sideMovement) * speed * Time.deltaTime;
             
             transform.Translate(movement, Space.World);
@@ -76,14 +85,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void RotatePlayerFigure(Vector3 moveDirection)
+    /*private void RotatePlayerFigure(Vector3 moveDirection)
     {
-        if (moveDirection != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
-    }
+   
+    }*/
 
     
 }

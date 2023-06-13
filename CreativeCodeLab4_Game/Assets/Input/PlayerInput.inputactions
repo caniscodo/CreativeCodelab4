@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseLook",
+                    "name": "Look",
                     "type": "Value",
                     "id": "a2f3a054-a964-4a31-b014-05bc2d171571",
                     "expectedControlType": "Vector2",
@@ -103,11 +103,11 @@
                 {
                     "name": "",
                     "id": "006d6fda-6c01-4954-ba30-2c06705142f5",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLook",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -118,13 +118,22 @@
             "id": "04b077f0-f624-4d03-9028-a71fd7141686",
             "actions": [
                 {
-                    "name": "CameraMovement",
+                    "name": "Look",
                     "type": "Button",
                     "id": "ac4ef080-58a4-48e1-b276-712d6d38184b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CameraRotation",
+                    "type": "Value",
+                    "id": "fd06ce64-07d1-4b0c-b84a-e2c55e525bb0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -135,7 +144,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CameraMovement",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73f4fee1-79e7-493c-a867-cb068a56b3d5",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
