@@ -11,7 +11,7 @@ public class PlanetSpawner : MonoBehaviour
 
     private int spawnedObjects = 0;
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < numberOfObjects; i++)
         {

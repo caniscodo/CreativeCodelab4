@@ -20,7 +20,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        print("collision with collectible");
+        
         if (collider.CompareTag("Player"))
         {
             GlobalData.instance.increaseHealth(1);
