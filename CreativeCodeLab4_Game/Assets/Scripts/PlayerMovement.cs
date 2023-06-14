@@ -82,8 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        print(transform.rotation);
-        
         ExecuteMovement();
     }
 

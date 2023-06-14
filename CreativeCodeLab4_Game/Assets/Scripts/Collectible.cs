@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    
+
+  
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider collider)
     {
-        if (other.CompareTag("Player")) {
+        print("collision with collectible");
+        if (collider.CompareTag("Player"))
+        {
             GlobalData.instance.increaseHealth(1);
             Destroy(this.gameObject);
         }
     }
 }
+

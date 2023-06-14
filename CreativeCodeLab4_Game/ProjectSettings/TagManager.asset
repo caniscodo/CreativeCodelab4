@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Levels
   - Planet
+  - Collectible
   layers:
   - Default
   - TransparentFX
