@@ -6,7 +6,7 @@ public class RocketMovement : MonoBehaviour
     public Transform endPoint;    // Game object defining the end point
 
     public float duration = 2f;   // Duration of the movement
-    public float frequency = 1f;  // Frequency of the sine curve
+    public float frequency = 10f;  // Frequency of the sine curve
 
     private float t = 0f;         // Current time
 
