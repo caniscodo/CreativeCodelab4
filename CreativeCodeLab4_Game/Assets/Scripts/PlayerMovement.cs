@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         initialJumpForce = jumpForce;
     }
+    
 
     public void OnMovement(InputValue input)
     {
@@ -42,27 +43,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isColliding)
         {
-                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
-                jumpForce = initialJumpForce;
+            GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+               
         }
-        
         else if(!isColliding) 
         {
             if (jumpForce >= 1)
             {
-               GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
-                           jumpForce--; 
-            } else
+               GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange); 
+               jumpForce--; 
+               
+            } else if (jumpForce <= 1)
             {
                 GetComponent<Rigidbody>().AddForce(0, 0, 0, ForceMode.VelocityChange);
             }
             
-            
-        }
-         
-    }
+            }
+         }
     
-
     void OnLook(InputValue value)
     {
         Vector2 inputValue = value.Get<Vector2>();
@@ -72,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
+        jumpForce = initialJumpForce;
         isColliding = true;
     }
 
@@ -82,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        /*print(isColliding);
+        print(jumpForce);*/
         ExecuteMovement();
     }
 
@@ -115,10 +116,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    /*private void RotatePlayerFigure(Vector3 moveDirection)
-    {
-   
-    }*/
 
     
 }

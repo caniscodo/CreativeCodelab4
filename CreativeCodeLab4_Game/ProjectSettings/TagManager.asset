@@ -7,6 +7,8 @@ TagManager:
   - Levels
   - Planet
   - Collectible
+  - Platform
+  - OrbSpawnArea
   layers:
   - Default
   - TransparentFX
