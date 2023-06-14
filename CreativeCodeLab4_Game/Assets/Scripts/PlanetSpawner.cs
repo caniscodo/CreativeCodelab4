@@ -17,7 +17,7 @@ public class PlanetSpawner : MonoBehaviour
         {
             Vector3 spawnPosition = GenerateRandomSpawnPosition();
 
-            // Check if the spawn position is within any exclusion zone
+            
             if (IsPositionInExclusionZone(spawnPosition))
                 continue;
 
