@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RocketMovement : MonoBehaviour
@@ -35,5 +36,13 @@ public class RocketMovement : MonoBehaviour
         float yOffset = Mathf.Sin(t * frequency * 0.2f * Mathf.PI) * amplitude;
 
         return new Vector3(x, y + yOffset, z);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GlobalData.instance.decreaseHealth(1);
+        }
     }
 }

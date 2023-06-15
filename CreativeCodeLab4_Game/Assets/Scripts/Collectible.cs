@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+    private bool collected = false;
+    private float collisionCooldown = 1.0f;  // Set the desired cooldown time here
+    private bool canCollide = true;
 
-  
-    // Start is called before the first frame update
-    void Start()
+    private IEnumerator ResetCollisionCooldown()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        yield return new WaitForSeconds(collisionCooldown);
+        canCollide = true;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (!canCollide || collected)
+            return;
+
         if (collider.CompareTag("Player"))
         {
             print("collectible increases");
+            GlobalData.instance.IncreaseHealth(1);
             Destroy(this.gameObject);
-            GlobalData.instance.increaseHealth(1);
-            
+
+            collected = true;
+            canCollide = false;
+            StartCoroutine(ResetCollisionCooldown());
         }
     }
-}
 
+
+    
+    private void OnTriggerExit(Collider collider)
+    {
+        collected = false;
+    }
+}

@@ -7,18 +7,19 @@ public class GlobalData : MonoBehaviour
     public static GlobalData instance;
 
     public int playerHealth;
-    
-
     public int initialHealth = 5;
-    // Start is called before the first frame update
-    
-    
+
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject); // Preserve the instance across scene changes
+        }
         else
-            Destroy(this.gameObject);
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
@@ -31,7 +32,7 @@ public class GlobalData : MonoBehaviour
         
     }
 
-    public void increaseHealth(int increaseBy)
+    public void IncreaseHealth(int increaseBy)
     {
         // Assuming you have a reference to the HealthManager GameObject
         
