@@ -9,6 +9,7 @@ TagManager:
   - Collectible
   - Platform
   - OrbSpawnArea
+  - Obstacle
   layers:
   - Default
   - TransparentFX

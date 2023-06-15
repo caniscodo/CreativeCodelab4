@@ -20,11 +20,12 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        
         if (collider.CompareTag("Player"))
         {
-            GlobalData.instance.increaseHealth(1);
+            print("collectible increases");
             Destroy(this.gameObject);
+            GlobalData.instance.increaseHealth(1);
+            
         }
     }
 }

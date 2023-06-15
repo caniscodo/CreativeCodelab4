@@ -6,10 +6,10 @@ public class GlobalData : MonoBehaviour
 {
     public static GlobalData instance;
 
-    public float playerHealth;
+    public int playerHealth;
     
 
-    public float initialHealth = 5;
+    public int initialHealth = 5;
     // Start is called before the first frame update
     
     
@@ -33,12 +33,19 @@ public class GlobalData : MonoBehaviour
 
     public void increaseHealth(int increaseBy)
     {
+        // Assuming you have a reference to the HealthManager GameObject
+        
+
         playerHealth += increaseBy;
+        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
     }
 
-    public void decreaseHealth()
+    public void decreaseHealth(int decreaseBy)
     {
-        
+
+        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+        playerHealth -= decreaseBy;
+
     }
     
     

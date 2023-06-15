@@ -9,6 +9,7 @@ public class OrbSpawner : MonoBehaviour
     public Material[] availableMaterials;
 
     private int spawnedObjects = 0;
+    private List<Vector3> existingOrbPositions = new List<Vector3>();
 
     private void Start()
     {
@@ -95,7 +96,18 @@ public class OrbSpawner : MonoBehaviour
 
                 randomPointOnSurface = randomPoint;
 
-                if (!Physics.CheckSphere(randomPoint, 0.1f))
+                // Check if the random point is too close to an existing orb
+                bool tooCloseToExistingOrb = false;
+                foreach (Vector3 existingPosition in existingOrbPositions)
+                {
+                    if (Vector3.Distance(randomPoint, existingPosition) < 0.1f)
+                    {
+                        tooCloseToExistingOrb = true;
+                        break;
+                    }
+                }
+
+                if (!Physics.CheckSphere(randomPoint, 0.1f) && !tooCloseToExistingOrb)
                 {
                     foundValidPoint = true;
                     break;
@@ -105,6 +117,7 @@ public class OrbSpawner : MonoBehaviour
             if (foundValidPoint)
             {
                 spawnPosition = randomPointOnSurface;
+                existingOrbPositions.Add(spawnPosition);
             }
         }
 
