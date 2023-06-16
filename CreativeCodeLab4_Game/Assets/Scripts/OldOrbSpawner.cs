@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class OrbSpawner : MonoBehaviour
+public class OldOrbSpawner : MonoBehaviour
 {
     public GameObject objectPrefab;
     public int numberOfObjects;
