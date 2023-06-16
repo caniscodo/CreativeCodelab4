@@ -28,13 +28,27 @@ public class AirManager : MonoBehaviour
         
     }
 
-    private void increaseAirAmount()
+   
+
+    public void increaseAirAmount()
     {
+       
         if (AirAmount <= 2)
         {
             AirAmount++;
+            print($"AirAmount increased to {AirAmount}");
+            
         }
         
         
     }
+
+    /*public void startTimerForAir(int timeSpentInBubble)
+    {
+        if (timeSpentInBubble >= 3)
+        {
+            print($"SpentTimeInBubble = {AirAmount}");
+            AirAmount++;
+        }
+    }*/
 }
