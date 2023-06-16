@@ -25,10 +25,17 @@ public class OrbSpawner : MonoBehaviour
             if (orbSpawnArea == null)
                 continue;
 
+            if (randomPlatformObject.GetComponentInChildren<Collectible>() != null)
+            {
+                i--;
+                continue;
+            }
+               
+            
             Vector3 spawnPosition = GenerateRandomSpawnPosition(randomPlatformObject, orbSpawnArea);
 
             Material randomMaterial = GetRandomMaterial();
-            GameObject spawnedObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(objectPrefab, randomPlatformObject.transform);
             ApplyMaterialToGameObject(spawnedObject, randomMaterial);
 
             spawnedObjects++;

@@ -10,8 +10,8 @@ public class Collectible : MonoBehaviour
 
     private IEnumerator ResetCollisionCooldown()
     {
-        yield return new WaitForSeconds(collisionCooldown);
         canCollide = true;
+        yield return new WaitForSeconds(collisionCooldown);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -36,5 +36,7 @@ public class Collectible : MonoBehaviour
     private void OnTriggerExit(Collider collider)
     {
         collected = false;
+       
+            
     }
 }
