@@ -34,18 +34,20 @@ public class GlobalData : MonoBehaviour
 
     public void IncreaseHealth(int increaseBy)
     {
-        // Assuming you have a reference to the HealthManager GameObject
-        
 
-        playerHealth += increaseBy;
+        if (playerHealth <= 4)
+        {
+            playerHealth += increaseBy;
+        } 
+
         HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
     }
 
     public void decreaseHealth(int decreaseBy)
     {
-
-        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
         playerHealth -= decreaseBy;
+        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+      
 
     }
     

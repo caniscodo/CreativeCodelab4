@@ -10,6 +10,9 @@ TagManager:
   - Platform
   - OrbSpawnArea
   - Obstacle
+  - Bubble
+  - BubbleEffect
+  - BubbleCanvas
   layers:
   - Default
   - TransparentFX
