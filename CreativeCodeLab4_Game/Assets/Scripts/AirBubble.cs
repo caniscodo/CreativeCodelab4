@@ -7,12 +7,12 @@ public class AirBubble : MonoBehaviour
 {
     private float airTime;
     private bool canStillIncrease;
-    private bool playerInBubble;
+    /*private bool playerInBubble;*/
     // Start is called before the first frame update
     void Start()
     {
         canStillIncrease = true;
-        playerInBubble = false;
+        /*playerInBubble = false;*/
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class AirBubble : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInBubble = true;
+            /*playerInBubble = true;*/
             airTime += Time.deltaTime;
         
             if (airTime >= 3 && canStillIncrease)
