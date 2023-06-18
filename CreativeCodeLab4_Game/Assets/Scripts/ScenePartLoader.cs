@@ -10,8 +10,11 @@ public enum CheckMethod
 }
 public class ScenePartLoader : MonoBehaviour
 {
+    /*
     private PortalOpener PortalOpener;
-
+    private bool isStandingInPortal;
+    */
+    
     public Transform player;
     public CheckMethod checkMethod;
     public float loadRange;
@@ -21,8 +24,7 @@ public class ScenePartLoader : MonoBehaviour
     private bool shouldLoad;
     void Start()
     {
-        PortalOpener = GameObject.Find("Portal").GetComponent<PortalOpener>();
-        
+      
         //verify if the scene is already open to avoid opening a scene twice
         if (SceneManager.sceneCount > 0)
         {
@@ -36,10 +38,16 @@ public class ScenePartLoader : MonoBehaviour
                 }
             }
         }
+        
+        
     }
 
     void Update()
     {
+        //Fix this Line because not efficient! Only added because i need to always check for value in update
+        /*PortalOpener = GameObject.Find("Portal").GetComponent<PortalOpener>();*/
+        
+        
         //Checking which method to use
         if (checkMethod == CheckMethod.Distance)
         {
@@ -66,7 +74,8 @@ public class ScenePartLoader : MonoBehaviour
 
     void LoadScene()
     {
-        if (!isLoaded && PortalOpener.IsStandingInPortal )
+        /*print($"in Sceneloader the portal is {PortalOpener.IsStandingInPortal}");*/
+        if (!isLoaded)
         {
             print(gameObject.name);
             //Loading the scene, using the gameobject name as it's the same as the name of the scene to load
@@ -80,7 +89,8 @@ public class ScenePartLoader : MonoBehaviour
     void UnLoadScene()
     {
         if (isLoaded)
-        {print(gameObject.name);
+        {
+            print(gameObject.name);
             SceneManager.UnloadSceneAsync(gameObject.name);
             isLoaded = false;
         }

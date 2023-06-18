@@ -13,13 +13,13 @@ public class PortalOpener : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+          
         }
         else
         {
             Destroy(instance.gameObject);
             instance = this;
-            DontDestroyOnLoad(gameObject);
+       
         }
 
         IsStandingInPortal = false;
@@ -28,5 +28,16 @@ public class PortalOpener : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         IsStandingInPortal = true;
+       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IsStandingInPortal = false;
+    }
+
+    private void Update()
+    {
+        print(IsStandingInPortal);
     }
 }
