@@ -1,4 +1,5 @@
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public enum CheckMethod
 }
 public class ScenePartLoader : MonoBehaviour
 {
+    private PortalOpener PortalOpener;
 
     public Transform player;
     public CheckMethod checkMethod;
@@ -19,6 +21,8 @@ public class ScenePartLoader : MonoBehaviour
     private bool shouldLoad;
     void Start()
     {
+        PortalOpener = GameObject.Find("Portal").GetComponent<PortalOpener>();
+        
         //verify if the scene is already open to avoid opening a scene twice
         if (SceneManager.sceneCount > 0)
         {
@@ -52,7 +56,6 @@ public class ScenePartLoader : MonoBehaviour
         //Checking if the player is within the range
         if (Vector3.Distance(player.position, transform.position) < loadRange)
         {
-            
             LoadScene();
         }
         else
@@ -63,7 +66,7 @@ public class ScenePartLoader : MonoBehaviour
 
     void LoadScene()
     {
-        if (!isLoaded)
+        if (!isLoaded && PortalOpener.IsStandingInPortal )
         {
             print(gameObject.name);
             //Loading the scene, using the gameobject name as it's the same as the name of the scene to load
