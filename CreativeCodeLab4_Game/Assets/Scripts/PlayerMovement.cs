@@ -47,23 +47,41 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isColliding)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.up * initialJumpForce, ForceMode.VelocityChange);
         }
-        else if(!isColliding) 
+        else
         {
             if (jumpForce >= 1)
             {
-               GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange); 
-               jumpForce--; 
-               
-            } else if (jumpForce <= 1)
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+                jumpForce--;
+            }
+            else if (jumpForce <= 1)
             {
-                GetComponent<Rigidbody>().AddForce(0, 0, 0, ForceMode.VelocityChange);
+                rb.AddForce(Vector3.up * 0, ForceMode.VelocityChange);
+               
             }
-            
-            }
-         }
+        }
+    }
+    /*if (isColliding)
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+    }
+    else if(!isColliding) 
+    {
+        if (jumpForce >= 1)
+        {
+           GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange); 
+           jumpForce--; 
+           
+        } else if (jumpForce <= 1)
+        {
+            GetComponent<Rigidbody>().AddForce(0, 0, 0, ForceMode.VelocityChange);
+        }
+        
+        }
+     }*/
     
     void OnLook(InputValue value)
     {
