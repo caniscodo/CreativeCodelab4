@@ -23,8 +23,7 @@ public class GoldenFishCollectible : MonoBehaviour
             canCollide = false;
         }
     }
-
-
+    
     
     private void OnTriggerExit(Collider collider)
     {

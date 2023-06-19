@@ -9,8 +9,13 @@ public class PortalOpener : MonoBehaviour
     public bool portalIsOpen { get; private set; }
     
    public static PortalOpener instance;
-   
-    private void Awake()
+
+   private void Start()
+   {
+       throw new NotImplementedException();
+   }
+
+   private void Awake()
     {
         if (instance == null)
         {
