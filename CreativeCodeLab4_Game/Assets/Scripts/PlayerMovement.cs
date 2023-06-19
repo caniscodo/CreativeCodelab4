@@ -29,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        
+        transform.rotation = Quaternion.LookRotation(virtualCamera.transform.forward);
+        
         initialJumpForce = jumpForce;
     }
     
