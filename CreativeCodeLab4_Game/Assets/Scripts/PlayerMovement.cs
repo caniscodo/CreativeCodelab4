@@ -8,10 +8,82 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    public float speed = 10f;
+    public float sensitivity;
+    public float maxForce;
+    private Vector2 look;
+    private Vector2 movement;
+    private float lookRotation;
+
+    public CinemachineVirtualCamera VirtualCamera;
+    
+    public Rigidbody rb;
+
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        look = context.ReadValue<Vector2>();
+    }
+    
+
+    public void Start()
+    {
+        rb = this.GetComponent<Rigidbody>();
+        VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+      Move();
+    }
+
+    private void Move()
+    {
+        Vector3 currentVelocity = rb.velocity;
+        Vector3 targetVelocity = new Vector3(movement.x, 0, movement.y);
+        targetVelocity *= speed;
+
+        targetVelocity = transform.TransformDirection((targetVelocity));
+
+        Vector3 velocityChange = (targetVelocity - currentVelocity);
+        velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
+        
+        Vector3.ClampMagnitude(velocityChange, maxForce);
+        
+        
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    private void LateUpdate()
+    {
+        //Turn
+       transform.Rotate(Vector3.up *look.x * sensitivity);
+
+       lookRotation += (-look.y * sensitivity);
+       lookRotation = Mathf.Clamp(lookRotation, -90, 90);
+       VirtualCamera.transform.eulerAngles = new Vector3(lookRotation, VirtualCamera.transform.eulerAngles.y,
+           VirtualCamera.transform.eulerAngles.z);
+
+    }
+
+
+    /*
+    [SerializeField] private float speed = 20f;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     
     [SerializeField] private float jumpForce = 20f;
@@ -30,10 +102,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         
-        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        
-        transform.rotation = Quaternion.LookRotation(virtualCamera.transform.forward);
-        
+         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+
         initialJumpForce = jumpForce;
     }
     
@@ -104,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = Quaternion.Euler(0f, virtualCamera.transform.eulerAngles.y, 0f) * moveDirection;
 
 
-        moveDirection.Normalize();
+        /*moveDirection.Normalize();#1#
 
 
         Vector3 movement = moveDirection * speed * Time.deltaTime;
@@ -114,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(movement, ForceMode.VelocityChange);
 
     }
+    */
 
 
     

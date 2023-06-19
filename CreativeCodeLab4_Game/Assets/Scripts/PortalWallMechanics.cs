@@ -26,7 +26,7 @@ public class PortalWallMechanics : MonoBehaviour
     private void Update()
     {
         print($" Portal is open in Wall is {portalIsOpen}");
-        if (PortalOpener.instance.portalIsOpen == true)
+        if (PortalOpener.instance.portalIsOpen)
         {Destroy(this.gameObject);}
     }
 }
