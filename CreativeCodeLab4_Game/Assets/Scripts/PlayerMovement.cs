@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 //using System.Diagnostics;
 using UnityEngine;
@@ -11,8 +12,9 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.1f;
+    [SerializeField] private float speed = 20f;
     [SerializeField] private MovementType movementType;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
     
     /*[SerializeField] private float rotationSpeed = 180f;*/
     [SerializeField] private float jumpForce = 5f;
@@ -25,10 +27,11 @@ public class PlayerMovement : MonoBehaviour
     private float initialJumpForce;
 
     // Start is called before the first frame update
+    private Rigidbody rb;
 
     void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         initialJumpForce = jumpForce;
     }
@@ -44,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isColliding)
         {
-            GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
-               
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         else if(!isColliding) 
         {
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         isColliding = false;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         /*print(isColliding);
         print(jumpForce);*/
@@ -89,31 +92,40 @@ public class PlayerMovement : MonoBehaviour
 
     public void ExecuteMovement()
     {
-        isJumpingOrFalling = GetComponent<Rigidbody>().velocity.y < -0.035f ||
-                             GetComponent<Rigidbody>().velocity.y > 0.00001f;
-
         if (moveBy == Vector3.zero)
-            isMoving = false;
-        else
-            isMoving = true;
-
-        if (!isMoving)
         {
+           
+            rb.velocity = Vector3.zero;
             return;
         }
+       
+        Vector3 moveDirection = new Vector3(moveBy.x, 0f, moveBy.y);
+        moveDirection = Quaternion.Euler(0f, virtualCamera.transform.eulerAngles.y, 0f) * moveDirection;
 
+     
+        Vector3 movement = moveDirection.normalized * speed;
+        movement += transform.forward * moveBy.magnitude * speed;
+
+  
+        rb.AddForce(movement, ForceMode.VelocityChange);
+        
+        
+        
+        /*//DONT
         if (movementType == MovementType.TransformBased)
         {
-            /*RotatePlayerFigure(moveBy.normalized);*/
-
-
             Vector3 forwardMovement = transform.forward * moveBy.z;
             //player not moving in relative z
             Vector3 sideMovement = transform.right * moveBy.x;
             Vector3 movement = (forwardMovement + sideMovement) * speed * Time.deltaTime;
-            
+
             transform.Translate(movement, Space.World);
-        }
+        }*/
+        /*else if (movementType == MovementType.PhysicsBased)
+        {
+            Vector3 movement = new Vector3(moveBy.x, 0f, moveBy.y);
+            rb.AddForce(movement.normalized * speed, ForceMode.VelocityChange);
+        }*/
 
     }
 
