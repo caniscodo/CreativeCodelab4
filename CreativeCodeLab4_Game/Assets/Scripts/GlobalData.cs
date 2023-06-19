@@ -8,6 +8,13 @@ public class GlobalData : MonoBehaviour
 
     public int playerHealth;
     public int initialHealth = 5;
+    //---
+    public int collectedFish;
+    public int collectedGoldenFish;
+    public bool allFishOfLevelCollected;
+    public bool allGoldenFishOfLevelCollected;
+    //--
+ 
 
     private void Awake()
     {
@@ -24,6 +31,7 @@ public class GlobalData : MonoBehaviour
     void Start()
     {
         playerHealth = initialHealth;
+        allFishOfLevelCollected = false;
     }
 
     // Update is called once per frame
@@ -50,6 +58,33 @@ public class GlobalData : MonoBehaviour
       
 
     }
+
+    public void collectFish(int increaseFishBy)
+    {
+        if (collectedFish >= 2)
+        {
+            allFishOfLevelCollected = true;
+            print("all blue fish collected!");
+        }
+        else
+        {
+            collectedFish += increaseFishBy;
+        }
+    }
+
+    public void collectGoldenFish(int increaseGoldenFishBy)
+    {
+        if (collectedGoldenFish >= 2)
+        {
+            allGoldenFishOfLevelCollected = true;
+            print("all golden special fish collected!");
+        }
+        else
+        {
+            collectedGoldenFish += increaseGoldenFishBy;
+        }
+    }
+    
     
     
 }

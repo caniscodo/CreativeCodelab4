@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishCollectible : MonoBehaviour
-{
+public class GoldenFishCollectible : MonoBehaviour
+{   
     private bool collected = false;
     private bool canCollide = true;
 
@@ -15,8 +15,8 @@ public class FishCollectible : MonoBehaviour
 
         if (collider.CompareTag("Player"))
         {
-            print("fish storage increases");
-            GlobalData.instance.collectFish(1);
+            print("golden fish storage increases");
+            GlobalData.instance.collectGoldenFish(1);
             Destroy(this.gameObject);
 
             collected = true;
@@ -29,7 +29,5 @@ public class FishCollectible : MonoBehaviour
     private void OnTriggerExit(Collider collider)
     {
         collected = false;
-       
-            
     }
 }
