@@ -6,6 +6,7 @@ using UnityEngine;
 public class PortalWallMechanics : MonoBehaviour
 {
     public static PortalWallMechanics instance;
+    private bool portalIsOpen = PortalOpener.instance.portalIsOpen;
 
     private void Awake()
     {
@@ -22,14 +23,10 @@ public class PortalWallMechanics : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-       
-    }
-
     private void Update()
     {
-        if(PortalOpener.instance.portalIsOpen == true)
+        print($" Portal is open in Wall is {portalIsOpen}");
+        if (PortalOpener.instance.portalIsOpen == true)
         {Destroy(this.gameObject);}
     }
 }

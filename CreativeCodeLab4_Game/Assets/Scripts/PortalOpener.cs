@@ -1,19 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Update = UnityEngine.PlayerLoop.Update;
 
 public class PortalOpener : MonoBehaviour
 {
     public bool IsStandingInPortal { get; private set; }
     public bool portalIsOpen { get; private set; }
     
+    Collider collider;
+    
    public static PortalOpener instance;
 
    private void Start()
    {
-       throw new NotImplementedException();
+    
    }
+
 
    private void Awake()
     {
@@ -34,9 +39,13 @@ public class PortalOpener : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
             IsStandingInPortal = true;
-        
-        /*if(GameStats.instance.collectedFish )*/
-       
+
+        if (GlobalData.instance.allFishOfLevelCollected)
+        {
+            collider = gameObject.GetComponent<Collider>();
+            collider.isTrigger = true;
+            portalIsOpen = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -48,5 +57,12 @@ public class PortalOpener : MonoBehaviour
     private void Update()
     {
         print(IsStandingInPortal);
+        
+        if (GlobalData.instance.allFishOfLevelCollected && IsStandingInPortal)
+        {
+            collider = gameObject.GetComponent<Collider>();
+            collider.isTrigger = true;
+            portalIsOpen = true;
+        }
     }
 }

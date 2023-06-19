@@ -9,10 +9,11 @@ public class GlobalData : MonoBehaviour
     public int playerHealth;
     public int initialHealth = 5;
     //---
-    public int collectedFish;
-    public int collectedGoldenFish;
-    public bool allFishOfLevelCollected;
-    public bool allGoldenFishOfLevelCollected;
+    public int collectedFish { get; private set; }
+    public int collectedGoldenFish { get; private set; }
+    
+    public bool allFishOfLevelCollected { get; private set; }
+    public bool allGoldenFishOfLevelCollected { get; private set; }
     //--
  
 
@@ -61,7 +62,7 @@ public class GlobalData : MonoBehaviour
 
     public void collectFish(int increaseFishBy)
     {
-        if (collectedFish >= 2)
+        if (collectedFish >= 1)
         {
             allFishOfLevelCollected = true;
             print("all blue fish collected!");
