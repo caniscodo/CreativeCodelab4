@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class PortalOpener : MonoBehaviour
 {
-    private static PortalOpener instance;
     public bool IsStandingInPortal { get; private set; }
-
+    public bool portalIsOpen { get; private set; }
+    
+   public static PortalOpener instance;
+   
     private void Awake()
     {
         if (instance == null)
@@ -21,19 +23,21 @@ public class PortalOpener : MonoBehaviour
             instance = this;
        
         }
-
-        IsStandingInPortal = false;
     }
-
+   
     private void OnTriggerStay(Collider other)
     {
-        IsStandingInPortal = true;
+        if(other.gameObject.CompareTag("Player"))
+            IsStandingInPortal = true;
+        
+        /*if(GameStats.instance.collectedFish )*/
        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        IsStandingInPortal = false;
+        if(other.gameObject.CompareTag("Player"))
+            IsStandingInPortal = false;
     }
 
     private void Update()

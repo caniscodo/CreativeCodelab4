@@ -25,7 +25,7 @@ public class OldOrbSpawner : MonoBehaviour
             if (orbSpawnArea == null)
                 continue;
 
-            if (randomPlatformObject.GetComponentInChildren<Collectible>() != null)
+            if (randomPlatformObject.GetComponentInChildren<HealthCollectible>() != null)
             {
                 i--;
                 continue;

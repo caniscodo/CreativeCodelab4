@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class HealthCollectible : MonoBehaviour
 {
     private bool collected = false;
     private float collisionCooldown = 1.0f;  // Set the desired cooldown time here
