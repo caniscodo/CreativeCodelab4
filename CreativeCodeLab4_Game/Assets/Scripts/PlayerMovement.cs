@@ -22,10 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     
     private Vector2 look;
-    private Vector2 movement;
+    public Vector2 movement;
 
-    public Animator animator;
-    
 
     public CinemachineVirtualCamera VirtualCamera;
     public Rigidbody rb;
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         isJumping = false;
@@ -61,38 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
       Move();
-      if (movement.magnitude > 0)
-      {
-          animator.SetBool("isWalking", true);
-          animator.SetBool("isIdle", false);
-      }
-      else
-      {
-          animator.SetBool("isWalking", false);
-          animator.SetBool("isIdle", true);
-      }
-
-      if (grounded && isJumping)
-      {
-          if (rb.velocity.y > 0)
-          {
-              animator.SetBool("isJumpingUp", true);
-              animator.SetBool("isJumpingDown", false);
-          }
-          else
-          {
-              animator.SetBool("isJumpingUp", false);
-              animator.SetBool("isJumpingDown", true);
-          }
-
-          isJumping = false;
-      }
-      else
-      {
-          animator.SetBool("isJumpingUp", false);
-          animator.SetBool("isJumpingDown", false);
-      }
-
+     
     }
 
     private void Move()

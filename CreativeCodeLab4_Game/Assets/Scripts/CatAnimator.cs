@@ -1,18 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CatAnimator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator animator;
+    private PlayerMovement playerMovement;
+
+    private void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        playerMovement = FindObjectOfType<PlayerMovement>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (playerMovement != null)
+        {
+            if (playerMovement.movement.magnitude > 0)
+            {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isIdle", false);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
+            }
+
+            if (playerMovement.grounded && playerMovement.isJumping)
+            {
+                if (playerMovement.rb.velocity.y > 0)
+                {
+                    animator.SetBool("isJumpingUp", true);
+                    animator.SetBool("isJumpingDown", false);
+                }
+                else
+                {
+                    animator.SetBool("isJumpingUp", false);
+                    animator.SetBool("isJumpingDown", true);
+                }
+
+                playerMovement.isJumping = false;
+            }
+            else
+            {
+                animator.SetBool("isJumpingUp", false);
+                animator.SetBool("isJumpingDown", false);
+            }
+        }
     }
 }
