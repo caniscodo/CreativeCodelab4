@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GlobalData : MonoBehaviour
@@ -16,6 +17,9 @@ public class GlobalData : MonoBehaviour
     public bool allGoldenFishOfLevelCollected { get; private set; }
     //--
  
+    public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI textMeshProGold;
+   
 
     private void Awake()
     {
@@ -38,7 +42,8 @@ public class GlobalData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        textMeshPro.text = "x" + collectedFish.ToString();
+        textMeshProGold.text = "x" + collectedGoldenFish.ToString();
     }
 
     public void IncreaseHealth(int increaseBy)
