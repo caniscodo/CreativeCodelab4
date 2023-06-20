@@ -33,9 +33,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "Shoot",
                     "type": "Button",
-                    "id": "3d2135ba-d80c-4dd7-a5e6-f106a46a6246",
+                    "id": "0165c222-af21-446d-bbd8-c986d0bbe6e2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -122,12 +122,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a09246b9-b241-4dde-878d-1db3c3c9dfd3",
+                    "id": "8c8c5d10-313c-4822-a55a-f8ae953c33c2",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

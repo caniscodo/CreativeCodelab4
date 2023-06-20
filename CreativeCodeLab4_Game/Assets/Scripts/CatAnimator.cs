@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CatAnimator : MonoBehaviour
@@ -46,6 +47,21 @@ public class CatAnimator : MonoBehaviour
                 animator.SetBool("isJumpingUp", false);
                 animator.SetBool("isJumpingDown", false);
             }
+
+        }
+    }
+
+    private void Update()
+    {
+        
+        if (playerMovement.isShooting)
+        {
+            print("animatorscriptisShooting");
+            animator.SetBool("isShooting", true);
+        } else if (!playerMovement.isShooting)
+        {
+            print("animatorNotSHooting");
+            animator.SetBool("isShooting", false);
         }
     }
 }

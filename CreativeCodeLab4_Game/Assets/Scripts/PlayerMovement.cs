@@ -24,9 +24,11 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded;
     public bool canJump;
     public bool isJumping;
+    public bool isShooting;
     
     private Vector2 look;
     public Vector2 movement;
+   
 
 
     public CinemachineVirtualCamera VirtualCamera;
@@ -41,6 +43,13 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         look = context.ReadValue<Vector2>();
+    }      
+    
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        isShooting = true;
+        Shoot();
+       
     }   
     
     
@@ -122,6 +131,11 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = 0; 
             jumpForce = initialJumpForce; 
         }
+    }
+
+    private void Shoot()
+    {
+        print("playerShootingInMovement");
     }
 
     private void LateUpdate()
