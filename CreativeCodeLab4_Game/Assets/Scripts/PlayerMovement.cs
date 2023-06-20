@@ -19,9 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private float lookRotation;
     
     public bool grounded;
+    public bool isJumping;
     
     private Vector2 look;
     private Vector2 movement;
+
+    public Animator animator;
     
 
     public CinemachineVirtualCamera VirtualCamera;
@@ -42,20 +45,54 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         Jump();
+        isJumping = true;
     }
     
 
     public void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
+        isJumping = false;
     }
 
     private void FixedUpdate()
     {
       Move();
-      
+      if (movement.magnitude > 0)
+      {
+          animator.SetBool("isWalking", true);
+          animator.SetBool("isIdle", false);
+      }
+      else
+      {
+          animator.SetBool("isWalking", false);
+          animator.SetBool("isIdle", true);
+      }
+
+      if (grounded && isJumping)
+      {
+          if (rb.velocity.y > 0)
+          {
+              animator.SetBool("isJumpingUp", true);
+              animator.SetBool("isJumpingDown", false);
+          }
+          else
+          {
+              animator.SetBool("isJumpingUp", false);
+              animator.SetBool("isJumpingDown", true);
+          }
+
+          isJumping = false;
+      }
+      else
+      {
+          animator.SetBool("isJumpingUp", false);
+          animator.SetBool("isJumpingDown", false);
+      }
+
     }
 
     private void Move()
@@ -91,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpForces = Vector3.up * jumpForce;
             rb.AddForce(jumpForces, ForceMode.VelocityChange);
-        }
+           }
     }
 
     private void LateUpdate()
@@ -99,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
         //Turn
        transform.Rotate(Vector3.up *look.x * sensitivity);
 
-    Look();
+        Look();
 
     }
 
