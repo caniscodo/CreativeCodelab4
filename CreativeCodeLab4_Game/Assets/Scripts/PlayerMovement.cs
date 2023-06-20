@@ -15,12 +15,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10f;
     public float sensitivity;
     public float maxForce;
+    public float jumpForce;
+    private float lookRotation;
+    
+    public bool grounded;
+    
     private Vector2 look;
     private Vector2 movement;
-    private float lookRotation;
+    
 
     public CinemachineVirtualCamera VirtualCamera;
-    
     public Rigidbody rb;
 
 
@@ -32,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         look = context.ReadValue<Vector2>();
+    }   
+    
+    
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        Jump();
     }
     
 
@@ -42,14 +52,10 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
       Move();
+      
     }
 
     private void Move()
@@ -69,124 +75,38 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
+    private void Look()
+    {
+        lookRotation += (-look.y * sensitivity);
+        lookRotation = Mathf.Clamp(lookRotation, -90, 90);
+        VirtualCamera.transform.eulerAngles = new Vector3(lookRotation, VirtualCamera.transform.eulerAngles.y,
+            VirtualCamera.transform.eulerAngles.z);
+    }
+
+    private void Jump()
+    {
+        Vector3 jumpForces = Vector3.zero;
+
+        if (grounded)
+        {
+            jumpForces = Vector3.up * jumpForce;
+            rb.AddForce(jumpForces, ForceMode.VelocityChange);
+        }
+    }
+
     private void LateUpdate()
     {
         //Turn
        transform.Rotate(Vector3.up *look.x * sensitivity);
 
-       lookRotation += (-look.y * sensitivity);
-       lookRotation = Mathf.Clamp(lookRotation, -90, 90);
-       VirtualCamera.transform.eulerAngles = new Vector3(lookRotation, VirtualCamera.transform.eulerAngles.y,
-           VirtualCamera.transform.eulerAngles.z);
+    Look();
 
     }
 
-
-    /*
-    [SerializeField] private float speed = 20f;
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
-    
-    [SerializeField] private float jumpForce = 20f;
-    
-    
-    private Vector3 moveBy;
-    private bool isMoving;
-    private bool isColliding;
-    private float initialJumpForce;
-
-    // Start is called before the first frame update
-    private Rigidbody rb;
-
-    void Start()
+    public void setGrounded(bool state)
     {
-        rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-        
-         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-
-        initialJumpForce = jumpForce;
+        grounded = state;
     }
-    
-
-    public void OnMovement(InputValue input)
-    {
-        Vector2 inputValue = input.Get<Vector2>();
-        moveBy = new Vector3(inputValue.x, 0, inputValue.y);
-    }
-
-    void OnJump(InputValue input)
-    {
-        if (isColliding)
-        {
-            rb.AddForce(Vector3.up * initialJumpForce, ForceMode.VelocityChange);
-        }
-        else if (jumpForce >= 1)
-        { 
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-            jumpForce--; 
-        } 
-        else if (jumpForce <= 1)
-        {
-            rb.AddForce(Vector3.up * 0, ForceMode.VelocityChange);
-
-        }
-    }
-
-    void OnLook(InputValue value)
-    {
-        Vector2 inputValue = value.Get<Vector2>();
-        transform.Rotate(0, inputValue.x, 0);
-
-    }
-
-    public void OnCollisionEnter(Collision other)
-    {
-        print(other.gameObject);
-        jumpForce = initialJumpForce;
-        isColliding = true;
-    }
-
-    public void OnCollisionExit(Collision other)
-    {
-        isColliding = false;
-    }
-
-    public void FixedUpdate()
-    {
-        ExecuteMovement();
-    }
-
-    private void Update()
-    {
-       
-    }
-
-    public void ExecuteMovement()
-    {
-        
-        if (moveBy == Vector3.zero)
-        {
-            rb.velocity = Vector3.zero;
-            return;
-        }
-
-        Vector3 moveDirection = new Vector3(moveBy.x, 0f, moveBy.y);
-        moveDirection = Quaternion.Euler(0f, virtualCamera.transform.eulerAngles.y, 0f) * moveDirection;
-
-
-        /*moveDirection.Normalize();#1#
-
-
-        Vector3 movement = moveDirection * speed * Time.deltaTime;
-        movement += transform.forward * moveBy.magnitude * speed * Time.deltaTime;
-
-
-        rb.AddForce(movement, ForceMode.VelocityChange);
-
-    }
-    */
-
-
     
 }
 
