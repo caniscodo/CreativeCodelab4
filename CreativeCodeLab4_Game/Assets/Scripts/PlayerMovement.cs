@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public float sensitivity;
     public float maxForce;
     public float jumpForce;
-    public float initalJumpForce;
+    public float initialJumpForce;
     private float lookRotation;
+    
+    private int jumpCount = 0;
     
     public bool grounded;
     public bool canJump;
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         isJumping = false;
-        jumpForce = initalJumpForce;
+        initialJumpForce = jumpForce;
     }
 
     private void FixedUpdate()
@@ -92,23 +94,33 @@ public class PlayerMovement : MonoBehaviour
             VirtualCamera.transform.eulerAngles.z);
     }
 
+  
+
     private void Jump()
     {
+        
         Vector3 jumpForces = Vector3.zero;
 
-        if (grounded && canJump)
+        if (grounded && canJump && jumpCount < 5)
         {
             jumpForces = Vector3.up * jumpForce;
             rb.AddForce(jumpForces, ForceMode.VelocityChange);
             canJump = false;
-            
-
-        } else if (AirManager.instance.airAmount >= 1)
+            jumpCount++;
+            jumpForce--;
+        }
+        else if (AirManager.instance.airAmount >= 1)
         {
             jumpForces = Vector3.up * 30f;
             rb.AddForce(jumpForces, ForceMode.VelocityChange);
-            AirManager.instance.airAmount-- ;
-            jumpForce = initalJumpForce;
+            AirManager.instance.airAmount--;
+            jumpForce = initialJumpForce;
+        }
+
+        if (grounded)
+        {
+            jumpCount = 0; 
+            jumpForce = initialJumpForce; 
         }
     }
 
