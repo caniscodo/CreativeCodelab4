@@ -5674,6 +5674,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1950473996}
     m_Modifications:
+    - target: {fileID: 818980448149953736, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4358503291173927968, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5721,6 +5725,14 @@ PrefabInstance:
     - target: {fileID: 4358503291173927969, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
       propertyPath: m_Name
       value: GoldenFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358503291173927969, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366013001085426857, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81ca76013d66c7e408e2dbbf26528b16, type: 3}
