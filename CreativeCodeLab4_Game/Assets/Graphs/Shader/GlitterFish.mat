@@ -53,6 +53,6 @@ Material:
     - _QueueOffset: 0
     - _ScollSpeed: 0.005
     m_Colors:
-    - _InnerColor: {r: 1, g: 0.40844297, b: 0.02352941, a: 0}
-    - _OuterColor: {r: 1, g: 0.4816449, b: 0, a: 0}
+    - _InnerColor: {r: 0, g: 0.04735572, b: 0.42352942, a: 0}
+    - _OuterColor: {r: 0, g: 0.12378649, b: 0.735849, a: 0}
   m_BuildTextureStacks: []
