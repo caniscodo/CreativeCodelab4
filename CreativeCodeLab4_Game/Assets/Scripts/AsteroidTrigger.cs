@@ -5,7 +5,7 @@ public class AsteroidTrigger : MonoBehaviour
 {
     public GameObject asteroid;
     public string playerTag = "Player";
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.01f;
     public bool playerTriggeredAsteroid;
     private Transform playerTransform;
 
@@ -32,11 +32,11 @@ public class AsteroidTrigger : MonoBehaviour
                     Vector3 targetPosition = playerTransform.position;
                     Vector3 currentPosition = asteroid.transform.position;
             
-                    print("is in movment of asteroid");
+                    
                     
                     asteroid.transform.position = Vector3.Lerp(currentPosition, targetPosition, moveSpeed * Time.deltaTime);
                     
-                    print(asteroid.transform.position);
+                    
         }
 
     }
