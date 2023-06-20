@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: ca5c9abe4705e9b4984a51b98d59d61b
+guid: f8e91356b6884f94abfeec0dbad7b449
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tilemap
+    second: {fileID: 2800000, guid: d2ce80481ac0c4e4c92a1101db57a311, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

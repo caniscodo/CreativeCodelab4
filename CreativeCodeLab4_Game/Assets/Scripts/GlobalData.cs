@@ -42,8 +42,8 @@ public class GlobalData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshPro.text = "x" + collectedFish.ToString();
-        textMeshProGold.text = "x" + collectedGoldenFish.ToString();
+        textMeshPro.text =  collectedFish.ToString();
+        textMeshProGold.text =  collectedGoldenFish.ToString();
     }
 
     public void IncreaseHealth(int increaseBy)

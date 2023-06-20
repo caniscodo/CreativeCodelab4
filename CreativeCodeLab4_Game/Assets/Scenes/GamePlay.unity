@@ -1729,7 +1729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 199, y: 80}
+  m_AnchoredPosition: {x: 195.1, y: 80}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707380305
@@ -3633,7 +3633,7 @@ MonoBehaviour:
   playerHealth: 0
   initialHealth: 2
   textMeshPro: {fileID: 707380305}
-  textMeshProGold: {fileID: 0}
+  textMeshProGold: {fileID: 769696480}
 --- !u!1 &1516385355
 GameObject:
   m_ObjectHideFlags: 0
