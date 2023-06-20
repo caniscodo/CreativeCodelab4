@@ -10,8 +10,6 @@ public class PortalOpener : MonoBehaviour
     public bool IsStandingInPortal { get; private set; }
     public bool portalIsOpen { get; private set; }
     
-    Collider collider;
-    
    public static PortalOpener instance;
 
    private void Start()
@@ -42,8 +40,6 @@ public class PortalOpener : MonoBehaviour
 
         if (GlobalData.instance.allFishOfLevelCollected)
         {
-            collider = gameObject.GetComponent<Collider>();
-            collider.isTrigger = true;
             portalIsOpen = true;
         }
     }
@@ -60,8 +56,6 @@ public class PortalOpener : MonoBehaviour
         
         if (GlobalData.instance.allFishOfLevelCollected && IsStandingInPortal)
         {
-            collider = gameObject.GetComponent<Collider>();
-            collider.isTrigger = true;
             portalIsOpen = true;
         }
     }

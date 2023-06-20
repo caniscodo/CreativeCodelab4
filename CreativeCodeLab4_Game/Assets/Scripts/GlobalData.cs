@@ -44,6 +44,12 @@ public class GlobalData : MonoBehaviour
     {
         textMeshPro.text =  collectedFish.ToString();
         textMeshProGold.text =  collectedGoldenFish.ToString();
+        
+        if (collectedFish >= 1)
+        {
+            allFishOfLevelCollected = true;
+            print("all blue fish collected!");
+        }
     }
 
     public void IncreaseHealth(int increaseBy)
@@ -67,15 +73,10 @@ public class GlobalData : MonoBehaviour
 
     public void collectFish(int increaseFishBy)
     {
-        if (collectedFish >= 1)
-        {
-            allFishOfLevelCollected = true;
-            print("all blue fish collected!");
-        }
-        else
-        {
+    
+       
             collectedFish += increaseFishBy;
-        }
+        
     }
 
     public void collectGoldenFish(int increaseGoldenFishBy)
