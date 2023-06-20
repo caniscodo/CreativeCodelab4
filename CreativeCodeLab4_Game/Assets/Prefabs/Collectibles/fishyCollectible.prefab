@@ -328,6 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6907737429346409294}
+  - component: {fileID: 4748180590003790592}
   m_Layer: 0
   m_Name: fishyCollectible
   m_TagString: Untagged
@@ -343,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6095312287968297460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.374, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -352,6 +353,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4748180590003790592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095312287968297460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728239fe75d9484f8d4bb673cddf74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6556379119702460637
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,8 +455,8 @@ Transform:
   m_GameObject: {fileID: 8285140071273376757}
   m_LocalRotation: {x: -0.70710665, y: 0, z: -0, w: 0.7071069}
   m_LocalPosition: {x: -0, y: 0.012132615, z: -0.19601694}
-  m_LocalScale: {x: 8.855092, y: 8.855092, z: 8.855092}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 19.999998, y: 19.999998, z: 19.999998}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6907737429346409294}
   m_RootOrder: 1

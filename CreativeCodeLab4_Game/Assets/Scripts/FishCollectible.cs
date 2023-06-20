@@ -5,12 +5,11 @@ using UnityEngine;
 public class FishCollectible : MonoBehaviour
 {
     private bool collected = false;
-    private bool canCollide = true;
 
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (!canCollide || collected)
+        if (collected)
             return;
 
         if (collider.CompareTag("Player"))
@@ -20,7 +19,7 @@ public class FishCollectible : MonoBehaviour
             Destroy(this.gameObject);
 
             collected = true;
-            canCollide = false;
+
         }
     }
 
