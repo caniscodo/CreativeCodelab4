@@ -16,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
     public float sensitivity;
     public float maxForce;
     public float jumpForce;
+    public float initalJumpForce;
     private float lookRotation;
     
     public bool grounded;
+    public bool canJump;
     public bool isJumping;
     
     private Vector2 look;
@@ -54,11 +56,14 @@ public class PlayerMovement : MonoBehaviour
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         isJumping = false;
+        jumpForce = initalJumpForce;
     }
 
     private void FixedUpdate()
     {
-      Move();
+        print(grounded);
+        Move();
+       setGrounded(grounded);
      
     }
 
@@ -91,11 +96,20 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 jumpForces = Vector3.zero;
 
-        if (grounded)
+        if (grounded && canJump)
         {
             jumpForces = Vector3.up * jumpForce;
             rb.AddForce(jumpForces, ForceMode.VelocityChange);
-           }
+            canJump = false;
+            
+
+        } else if (AirManager.instance.airAmount >= 1)
+        {
+            jumpForces = Vector3.up * 30f;
+            rb.AddForce(jumpForces, ForceMode.VelocityChange);
+            AirManager.instance.airAmount-- ;
+            jumpForce = initalJumpForce;
+        }
     }
 
     private void LateUpdate()
@@ -109,7 +123,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void setGrounded(bool state)
     {
+        print("in set grounded");
         grounded = state;
+        canJump = true;
     }
     
 }
