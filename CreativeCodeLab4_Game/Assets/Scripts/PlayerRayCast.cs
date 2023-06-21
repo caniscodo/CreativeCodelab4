@@ -23,13 +23,14 @@ public class PlayerRayCast : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Destroyable"))
                 {
-                    if (raycastTimer <= 0f)
+                    Destroy(hit.collider.gameObject);
+                    /*if (raycastTimer <= 0f)
                         raycastTimer = Time.time;
 
                     if (Time.time - raycastTimer >= raycastDuration)
                     {
-                        Destroy(hit.collider.gameObject);
-                    }
+                        
+                    }*/
                 }
                 else
                 {
@@ -37,11 +38,11 @@ public class PlayerRayCast : MonoBehaviour
                 }
 
                 // Visualize the raycast using a particle system
-                if (raycastParticle != null)
+                /*if (raycastParticle != null)
                 {
                     raycastParticle.transform.position = hit.point;
                     raycastParticle.Play();
-                }
+                }*/
             }
             else
             {

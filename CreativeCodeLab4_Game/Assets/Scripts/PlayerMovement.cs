@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float initialJumpForce;
     private float lookRotation;
-    
+    private bool jumpUp;
+
     private int jumpCount = 0;
     
     public bool grounded;
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector2 look;
     public Vector2 movement;
+    private Animator animator;
+    public ParticleSystem ps;
+
    
 
 
@@ -47,9 +51,23 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnShoot(InputAction.CallbackContext context)
     {
-        isShooting = true;
-        Shoot();
-       
+        
+        if (context.performed)
+        {
+            isShooting = true;
+            var em = ps.emission;
+            em.enabled = true;
+            
+            Shoot();
+            
+            print($"playerShooting is {isShooting}");
+        }
+        else if (context.canceled)
+        {
+            isShooting = false;
+            var em = ps.emission;
+            em.enabled = false;
+        }
     }   
     
     
@@ -63,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+
+        animator = GetComponentInChildren<Animator>();
+        ps  = GetComponentInChildren<ParticleSystem>();
+        var em = ps.isEmitting;
+        em = false;
         
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -93,6 +116,18 @@ public class PlayerMovement : MonoBehaviour
         
         
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        
+        
+        if (movement.magnitude <= 0)
+        {
+            animator.SetFloat("Speed", 0, 0.01f, Time.deltaTime);
+        }
+
+        else
+        {
+            animator.SetFloat("Speed", 0.9f, 0.01f, Time.deltaTime);
+        }
+
     }
 
     private void Look()
@@ -126,6 +161,17 @@ public class PlayerMovement : MonoBehaviour
             jumpForce = initialJumpForce;
         }
 
+        if (jumpForces.magnitude > 0)
+        {
+            animator.SetTrigger("JumpUp");
+            jumpUp = true;
+        } else if (jumpUp)
+        {
+            animator.SetTrigger("JumpDown");
+        }
+        
+        
+
         if (grounded)
         {
             jumpCount = 0; 
@@ -135,13 +181,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Shoot()
     {
+        var em = ps.isEmitting;
+        em = true;
+        animator.SetTrigger(("Shoot"));
         print("playerShootingInMovement");
     }
 
     private void LateUpdate()
     {
-        //Turn
-       transform.Rotate(Vector3.up *look.x * sensitivity);
+        transform.Rotate(Vector3.up * look.x * sensitivity);
+
+        if (!isShooting)
+        {
+            var em = ps.emission;
+            em.enabled = false;
+        }
 
         Look();
 

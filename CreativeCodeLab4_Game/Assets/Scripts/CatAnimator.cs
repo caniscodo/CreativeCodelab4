@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using UnityEngine;
 
 public class CatAnimator : MonoBehaviour
@@ -8,7 +8,7 @@ public class CatAnimator : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
         playerMovement = FindObjectOfType<PlayerMovement>(); 
     }
 
@@ -18,8 +18,6 @@ public class CatAnimator : MonoBehaviour
         {
             if (playerMovement.movement.magnitude > 0)
             {
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
             }
             else
             {
@@ -64,4 +62,4 @@ public class CatAnimator : MonoBehaviour
             animator.SetBool("isShooting", false);
         }
     }
-}
+}*/

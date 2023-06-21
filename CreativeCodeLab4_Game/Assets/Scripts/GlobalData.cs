@@ -61,6 +61,11 @@ public class GlobalData : MonoBehaviour
         } 
 
         HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+
+        if (playerHealth <= 0)
+        {
+            print("Oi mate, u used all u health");
+        }
     }
 
     public void decreaseHealth(int decreaseBy)

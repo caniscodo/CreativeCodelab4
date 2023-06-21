@@ -10,7 +10,7 @@ public class Asteroid : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GlobalData.instance.decreaseHealth(2);
-            Destroy(this.gameObject);
+           print("AsteroidDecreasedPlayerHEalth");
         }
     }
 }
