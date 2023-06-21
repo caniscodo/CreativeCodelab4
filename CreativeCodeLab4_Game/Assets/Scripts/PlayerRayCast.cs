@@ -23,26 +23,14 @@ public class PlayerRayCast : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Destroyable"))
                 {
+                    print("player destroyed asteroid");
                     Destroy(hit.collider.gameObject);
-                    /*if (raycastTimer <= 0f)
-                        raycastTimer = Time.time;
-
-                    if (Time.time - raycastTimer >= raycastDuration)
-                    {
-                        
-                    }*/
                 }
                 else
                 {
                     raycastTimer = 0f;
                 }
-
-                // Visualize the raycast using a particle system
-                /*if (raycastParticle != null)
-                {
-                    raycastParticle.transform.position = hit.point;
-                    raycastParticle.Play();
-                }*/
+                
             }
             else
             {

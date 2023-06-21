@@ -142,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        
         Vector3 jumpForces = Vector3.zero;
 
         if (grounded && canJump && jumpCount < 5)
@@ -169,9 +168,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("JumpDown");
         }
-        
-        
-
         if (grounded)
         {
             jumpCount = 0; 
