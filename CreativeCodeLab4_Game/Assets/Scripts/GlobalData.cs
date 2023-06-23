@@ -13,18 +13,17 @@ public class GlobalData : MonoBehaviour
     public int globalFishCounter;
     public int globalGoldFishCounter;
     public int airCounter;
-    
+
     //---
     public int collectedFish { get; private set; }
     public int collectedGoldenFish { get; private set; }
-    
+
     public bool allFishOfLevelCollected { get; private set; }
     public bool allGoldenFishOfLevelCollected { get; private set; }
     //--
- 
+
     public TextMeshProUGUI textMeshPro;
     public TextMeshProUGUI textMeshProGold;
-   
 
     private void Awake()
     {
@@ -38,6 +37,7 @@ public class GlobalData : MonoBehaviour
         }
 
     }
+
     void Start()
     {
         globalFishCounter = 0;
@@ -61,7 +61,7 @@ public class GlobalData : MonoBehaviour
         {
             print("You are missing some fish");
         }
-        
+
         if (GameObject.FindGameObjectsWithTag("Fish").Length == 0)
         {
             allFishOfLevelCollected = true;
@@ -69,13 +69,16 @@ public class GlobalData : MonoBehaviour
         }
     }
 
-
     public void IncreaseHealth(int increaseBy)
     {
-
-        if (playerHealth <= 4)
+        if (playerHealth <= 4 && playerHealth + increaseBy <= 5)
         {
             playerHealth += increaseBy;
+            HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+        }
+        else if (playerHealth < 5 && playerHealth + increaseBy > 5)
+        {
+            playerHealth = 5;
             HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
         }
 
@@ -90,20 +93,15 @@ public class GlobalData : MonoBehaviour
     {
         if (playerHealth >= 1)
         {
-                   playerHealth-= decreaseBy;
-                    HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+            playerHealth -= decreaseBy;
+            HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
         }
-     
-        
+
         if (playerHealth <= 0)
         {
             print("no health left");
             MenuManager.instance.GameOver();
         }
-
-        
-      
-
     }
 
     public void collectFish(int increaseFishBy)
@@ -125,10 +123,4 @@ public class GlobalData : MonoBehaviour
             globalGoldFishCounter++;
         }
     }
-    
-    
-    
-    
-    
-    
 }

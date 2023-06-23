@@ -32,7 +32,7 @@ public class ScenePartLoader : MonoBehaviour
     {
         AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(gameObject.name);
         asyncUnload.completed += (operation) => isLoaded = false;
-    }
+   }
 
     private void OnTriggerEnter(Collider other)
     {

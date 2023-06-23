@@ -220,9 +220,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void spiderEffect()
     {  
-        /*spiderEffectDuration = 2;*/
-
-        /*for (int i = 0; i < spiderEffectDuration * Time.deltaTime; i++)*/
+      
             GlobalData.instance.decreaseHealth(1);
     }
     

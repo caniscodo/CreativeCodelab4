@@ -34,11 +34,13 @@ public class MenuManager : MonoBehaviour
     {
         print("gameover");
         SceneManager.LoadSceneAsync("EndScreen");
+        SceneManager.UnloadSceneAsync("Gameplay");
     }
 
     public void Success()
     {
         print("success");
         SceneManager.LoadSceneAsync("Success");
+        
     }
 }

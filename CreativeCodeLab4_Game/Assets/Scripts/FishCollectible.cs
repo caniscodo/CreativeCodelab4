@@ -34,7 +34,6 @@ public class FishCollectible : MonoBehaviour
     private void OnTriggerExit(Collider collider)
     {
         collected = false;
-       
-            
+          
     }
 }
