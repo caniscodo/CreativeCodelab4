@@ -42,15 +42,26 @@ public class GlobalData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshPro.text =  collectedFish.ToString();
-        textMeshProGold.text =  collectedGoldenFish.ToString();
-        
+        textMeshPro.text = collectedFish.ToString();
+        textMeshProGold.text = collectedGoldenFish.ToString();
+
         if (collectedFish >= 1)
         {
             allFishOfLevelCollected = true;
             print("all blue fish collected!");
         }
+        else
+        {
+            print("You are missing some fish");
+        }
+        
+        if (GameObject.FindGameObjectsWithTag("Fish").Length == 0)
+        {
+            allFishOfLevelCollected = true;
+            print("No more Collectible objects in the scene. Setting allFishOfLevelCollected to true.");
+        }
     }
+
 
     public void IncreaseHealth(int increaseBy)
     {
@@ -90,10 +101,8 @@ public class GlobalData : MonoBehaviour
 
     public void collectFish(int increaseFishBy)
     {
-    
-       
+
             collectedFish += increaseFishBy;
-        
     }
 
     public void collectGoldenFish(int increaseGoldenFishBy)
