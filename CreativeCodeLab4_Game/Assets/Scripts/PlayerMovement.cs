@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         isJumping = false;
-       jumpForce =  initialJumpForce;
+        initialJumpForce = jumpForce;
     }
 
     private void FixedUpdate()
@@ -216,18 +216,14 @@ public class PlayerMovement : MonoBehaviour
         grounded = state;
         canJump = true;
     }
+    
 
-    public void reduceJumpForce(int reduction)
-    {
-     
-            /*playerInBubble = true;*/
-            spiderEffectDuration += Time.deltaTime;
-        
-            if (spiderEffectDuration >= 3)
-            {
-                jumpForce = initialJumpForce;
-               }
-        
+    public void spiderEffect()
+    {  
+        /*spiderEffectDuration = 2;*/
+
+        /*for (int i = 0; i < spiderEffectDuration * Time.deltaTime; i++)*/
+            GlobalData.instance.decreaseHealth(1);
     }
     
 }

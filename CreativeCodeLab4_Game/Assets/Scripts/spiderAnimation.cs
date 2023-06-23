@@ -25,6 +25,7 @@ public class spiderAnimation : MonoBehaviour
         if(gameObject.CompareTag("Player")) 
         print("spider triggered");
         animator.SetTrigger("SpiderTriggered");
-        PlayerMovement.instance.jumpForce = 1f;
+        
+        PlayerMovement.instance.spiderEffect();
     }
 }
