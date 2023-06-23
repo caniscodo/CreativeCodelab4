@@ -1,0 +1,313 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e35388c1e9dd463a9545d3cd4bf3255, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Virtual Acoustics
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 7a27f6f87c983d42908b632e8c62a71b
+    ParentPath: Virtual Acoustics\Default Work Unit
+    guid: 7a27f6f87c983d42908b632e8c62a71b
+    GuidInternal: 
+    m_lastTime: -8585142249059588972
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Master-Mixer Hierarchy
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: e3a154e555f0c546bfef96ad365f3bf3
+    ParentPath: Master-Mixer Hierarchy\Default Work Unit
+    guid: e3a154e555f0c546bfef96ad365f3bf3
+    GuidInternal: 
+    m_lastTime: -8585142249043339974
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e3a154e555f0c546bfef96ad365f3bf3
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 39f70c57d592bb4bab24f4314422c72b
+    ParentPath: SoundBanks\Default Work Unit
+    guid: 39f70c57d592bb4bab24f4314422c72b
+    GuidInternal: 
+    m_lastTime: -8585142249033886688
+    List:
+    - name: Main_SoundBank
+      guid: 7c500ecdcb6586459d406cf0564d1a47
+      id: 2228651116
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 39f70c57d592bb4bab24f4314422c72b
+      - ElementName: Main_SoundBank
+        ObjectType: 7
+        guid: 7c500ecdcb6586459d406cf0564d1a47
+      Path: SoundBanks\Default Work Unit\Main_SoundBank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 4a3ff477228a0243b335c054966c5fed
+    ParentPath: Events\Default Work Unit
+    guid: 4a3ff477228a0243b335c054966c5fed
+    GuidInternal: 
+    m_lastTime: -8585142249040502404
+    List:
+    - name: Footsteps
+      guid: 072abbc54f6c1b48bd7d7dcd94e2a28a
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Footsteps
+        ObjectType: 3
+        guid: 072abbc54f6c1b48bd7d7dcd94e2a28a
+      Path: Events\Default Work Unit\Footsteps
+      maxAttenuation: 0
+      maxDuration: 0.437588
+      minDuration: 0.071943
+    - name: Play_asteroidRumble
+      guid: 717485ea624f50459c334e14a212005a
+      id: 2780214870
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_asteroidRumble
+        ObjectType: 3
+        guid: 717485ea624f50459c334e14a212005a
+      Path: Events\Default Work Unit\Play_asteroidRumble
+      maxAttenuation: 100
+      maxDuration: 8.333333
+      minDuration: 8.333333
+    - name: Play_ballCollect
+      guid: 0b4e2467c1128149ac79ed9aac76e6cd
+      id: 2972556865
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_ballCollect
+        ObjectType: 3
+        guid: 0b4e2467c1128149ac79ed9aac76e6cd
+      Path: Events\Default Work Unit\Play_ballCollect
+      maxAttenuation: 0
+      maxDuration: 1.515102
+      minDuration: 1.515102
+    - name: Play_bgSound
+      guid: 209b02916d0fbf4096b1d1f2ff2e3bec
+      id: 3799534504
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_bgSound
+        ObjectType: 3
+        guid: 209b02916d0fbf4096b1d1f2ff2e3bec
+      Path: Events\Default Work Unit\Play_bgSound
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_collectGoldenFish
+      guid: cd2d402e2e6ee44a9e2a630c0b9b1fa3
+      id: 1312347929
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_collectGoldenFish
+        ObjectType: 3
+        guid: cd2d402e2e6ee44a9e2a630c0b9b1fa3
+      Path: Events\Default Work Unit\Play_collectGoldenFish
+      maxAttenuation: 0
+      maxDuration: 1.926116
+      minDuration: 1.926116
+    - name: Play_fishCollect
+      guid: dc1bc6a6fd61aa4d90d3817dafe0fd55
+      id: 3100425318
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_fishCollect
+        ObjectType: 3
+        guid: dc1bc6a6fd61aa4d90d3817dafe0fd55
+      Path: Events\Default Work Unit\Play_fishCollect
+      maxAttenuation: 0
+      maxDuration: 0.323163
+      minDuration: 0.323163
+    - name: Play_portalBackgroundSound
+      guid: 2ea2579e7778e44da96ba63f6cd84c24
+      id: 2343924725
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_portalBackgroundSound
+        ObjectType: 3
+        guid: 2ea2579e7778e44da96ba63f6cd84c24
+      Path: Events\Default Work Unit\Play_portalBackgroundSound
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_rocketRumble
+      guid: 2cd88bf44a00dc46949ec0452f694e88
+      id: 1177474249
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_rocketRumble
+        ObjectType: 3
+        guid: 2cd88bf44a00dc46949ec0452f694e88
+      Path: Events\Default Work Unit\Play_rocketRumble
+      maxAttenuation: 100
+      maxDuration: 35.36948
+      minDuration: 35.36948
+    - name: Play_spiderLaugh
+      guid: f0f2849f964b2442939434643db12717
+      id: 392973816
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4a3ff477228a0243b335c054966c5fed
+      - ElementName: Play_spiderLaugh
+        ObjectType: 3
+        guid: f0f2849f964b2442939434643db12717
+      Path: Events\Default Work Unit\Play_spiderLaugh
+      maxAttenuation: 0
+      maxDuration: 2.70058
+      minDuration: 2.70058
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 22517d834e54574fbaff92a8c11b1c73
+    ParentPath: Game Parameters\Default Work Unit
+    guid: 22517d834e54574fbaff92a8c11b1c73
+    GuidInternal: 
+    m_lastTime: -8585142249046819117
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: States
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 1bfa8cdbdc2bf94a8d2111ea085be872
+    ParentPath: States\Default Work Unit
+    guid: 1bfa8cdbdc2bf94a8d2111ea085be872
+    GuidInternal: 
+    m_lastTime: -8585142249043973814
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 3c7b04d424d06548a0743768e51a7ea4
+    ParentPath: Switches\Default Work Unit
+    guid: 3c7b04d424d06548a0743768e51a7ea4
+    GuidInternal: 
+    m_lastTime: -8585142249087076297
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Triggers
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 6b4250e8735006418b73773edd6e3a98
+    ParentPath: Triggers\Default Work Unit
+    guid: 6b4250e8735006418b73773edd6e3a98
+    GuidInternal: 
+    m_lastTime: -8585142249086056808
+    List: []
+  ExpandedFileSystemItemIds: 
+  ExpandedWaapiItemIds: 
+  AutoSyncSelection: 0
+  autoPopulateEnabled: 1
+  currentDataSource: 0
+  CurrentPluginConfig: 

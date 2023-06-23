@@ -37,8 +37,11 @@ public class PlatformWobble : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnCollisionExit(Collision collision)
     {
-        initialPosition = transform.position;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            initialPosition = transform.position;
+        }
     }
 }

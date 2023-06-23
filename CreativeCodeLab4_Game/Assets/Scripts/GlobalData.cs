@@ -26,12 +26,12 @@ public class GlobalData : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Preserve the instance across scene changes
         }
         else
         {
             Destroy(gameObject);
         }
+
     }
     void Start()
     {
@@ -58,20 +58,32 @@ public class GlobalData : MonoBehaviour
         if (playerHealth <= 4)
         {
             playerHealth += increaseBy;
-        } 
-
-        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+            HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+        }
 
         if (playerHealth <= 0)
         {
             print("Oi mate, u used all u health");
+            MenuManager.instance.GameOver();
         }
     }
 
     public void decreaseHealth(int decreaseBy)
     {
-        playerHealth -= decreaseBy;
-        HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+        if (playerHealth >= 1)
+        {
+                   playerHealth-= decreaseBy;
+                    HealthDisplay.instance.UpdateHealthDisplay(playerHealth);
+        }
+     
+        
+        if (playerHealth <= 0)
+        {
+            print("no health left");
+            MenuManager.instance.GameOver();
+        }
+
+        
       
 
     }
@@ -96,6 +108,7 @@ public class GlobalData : MonoBehaviour
             collectedGoldenFish += increaseGoldenFishBy;
         }
     }
+    
     
     
     

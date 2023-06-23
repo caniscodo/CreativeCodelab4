@@ -12,25 +12,11 @@ public class PortalOpener : MonoBehaviour
     
    public static PortalOpener instance;
 
+
+
    private void Start()
-   {
-    
-   }
-
-
-   private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-          
-        }
-        else
-        {
-            Destroy(instance.gameObject);
-            instance = this;
-       
-        }
+        instance = this;
     }
    
     private void OnTriggerStay(Collider other)
@@ -48,13 +34,18 @@ public class PortalOpener : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
             IsStandingInPortal = false;
+
+        if (portalIsOpen = true)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void Update()
     {
         print(IsStandingInPortal);
         
-        if (GlobalData.instance.allFishOfLevelCollected && IsStandingInPortal)
+        if (IsStandingInPortal)
         {
             portalIsOpen = true;
         }

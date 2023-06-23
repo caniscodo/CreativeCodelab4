@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>/Users/alicaholla/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/CreativeCodelab4/CreativeCodeLab4_Game/CreativeCodeLab4_Game_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/alicaholla/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/CreativeCodelab4/CreativeCodeLab4_Game/CreativeCodeLab4_Game_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/alicaholla/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/CreativeCodelab4/CreativeCodeLab4_Game/CreativeCodeLab4_Game_WwiseProject/SoundBanks/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/alicaholla/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Desktop/CreativeCodelab4/CreativeCodeLab4_Game/CreativeCodeLab4_Game_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2228651116" Language="SFX" Hash="3325763107">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main_SoundBank</ObjectPath>
+			<ShortName>Main_SoundBank</ShortName>
+			<Path>Main_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2385628198" Name="Footsteps" ObjectPath="\Events\Default Work Unit\Footsteps" DurationType="OneShot" DurationMin="0.071943" DurationMax="0.437588">
+					<IncludedMemoryFiles>
+						<File Id="76116694" Language="SFX">
+							<ShortName>step3.wav</ShortName>
+							<Path>SFX/step3_805C58FE.wem</Path>
+						</File>
+						<File Id="97867071" Language="SFX">
+							<ShortName>step4.wav</ShortName>
+							<Path>SFX/step4_C2C4F0FA.wem</Path>
+						</File>
+						<File Id="126328529" Language="SFX">
+							<ShortName>step2.wav</ShortName>
+							<Path>SFX/step2_AB8DFA65.wem</Path>
+						</File>
+						<File Id="195557660" Language="SFX">
+							<ShortName>step3.wav</ShortName>
+							<Path>SFX/step3_298B8A1B.wem</Path>
+						</File>
+						<File Id="466640540" Language="SFX">
+							<ShortName>step2.wav</ShortName>
+							<Path>SFX/step2_B61B13E1.wem</Path>
+						</File>
+						<File Id="478722547" Language="SFX">
+							<ShortName>step1.wav</ShortName>
+							<Path>SFX/step1_ACC8362D.wem</Path>
+						</File>
+						<File Id="953807408" Language="SFX">
+							<ShortName>step4.wav</ShortName>
+							<Path>SFX/step4_08F90A9D.wem</Path>
+						</File>
+						<File Id="1026635645" Language="SFX">
+							<ShortName>step1.wav</ShortName>
+							<Path>SFX/step1_87A87F8A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2780214870" Name="Play_asteroidRumble" ObjectPath="\Events\Default Work Unit\Play_asteroidRumble" MaxAttenuation="100." DurationType="OneShot" DurationMin="8.333333" DurationMax="8.333333">
+					<IncludedMemoryFiles>
+						<File Id="530950594" Language="SFX">
+							<ShortName>asteroidRumble.wav</ShortName>
+							<Path>SFX/asteroidRumble_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2972556865" Name="Play_ballCollect" ObjectPath="\Events\Default Work Unit\Play_ballCollect" DurationType="OneShot" DurationMin="1.515102" DurationMax="1.515102">
+					<IncludedMemoryFiles>
+						<File Id="892501343" Language="SFX">
+							<ShortName>ballCollect.wav</ShortName>
+							<Path>SFX/ballCollect_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3799534504" Name="Play_bgSound" ObjectPath="\Events\Default Work Unit\Play_bgSound" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="564128552" Language="SFX">
+							<ShortName>bgSound.wav</ShortName>
+							<Path>SFX/bgSound_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1312347929" Name="Play_collectGoldenFish" ObjectPath="\Events\Default Work Unit\Play_collectGoldenFish" DurationType="OneShot" DurationMin="1.926116" DurationMax="1.926116">
+					<IncludedMemoryFiles>
+						<File Id="161742379" Language="SFX">
+							<ShortName>collectGoldenFish.wav</ShortName>
+							<Path>SFX/collectGoldenFish_6DF8E762.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3100425318" Name="Play_fishCollect" ObjectPath="\Events\Default Work Unit\Play_fishCollect" DurationType="OneShot" DurationMin="0.323163" DurationMax="0.323163">
+					<IncludedMemoryFiles>
+						<File Id="217122684" Language="SFX">
+							<ShortName>fishCollect.wav</ShortName>
+							<Path>SFX/fishCollect_1A669F6A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2343924725" Name="Play_portalBackgroundSound" ObjectPath="\Events\Default Work Unit\Play_portalBackgroundSound" MaxAttenuation="100." DurationType="Infinite"/>
+				<Event Id="1177474249" Name="Play_rocketRumble" ObjectPath="\Events\Default Work Unit\Play_rocketRumble" MaxAttenuation="100." DurationType="OneShot" DurationMin="35.36948" DurationMax="35.36948">
+					<IncludedMemoryFiles>
+						<File Id="204900015" Language="SFX">
+							<ShortName>rocketRumble.wav</ShortName>
+							<Path>SFX/rocketRumble_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="392973816" Name="Play_spiderLaugh" ObjectPath="\Events\Default Work Unit\Play_spiderLaugh" DurationType="OneShot" DurationMin="2.70058" DurationMax="2.70058">
+					<IncludedMemoryFiles>
+						<File Id="290638894" Language="SFX">
+							<ShortName>spiderLaugh.wav</ShortName>
+							<Path>SFX/spiderLaugh_D4BC77C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="619871265" Language="SFX">
+					<ShortName>portalBackgroundSound.wav</ShortName>
+					<Path>SFX/portalBackgroundSound_79C6BF4F.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

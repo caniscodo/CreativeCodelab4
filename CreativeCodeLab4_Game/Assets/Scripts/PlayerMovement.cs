@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float initialJumpForce;
     private float lookRotation;
-    private bool jumpUp;
+    public float spiderEffectDuration;
 
     private int jumpCount = 0;
     
@@ -26,13 +26,14 @@ public class PlayerMovement : MonoBehaviour
     public bool canJump;
     public bool isJumping;
     public bool isShooting;
+    private bool jumpUp;
     
     private Vector2 look;
     public Vector2 movement;
     private Animator animator;
     public ParticleSystem ps;
 
-   
+    public static PlayerMovement instance;
 
 
     public CinemachineVirtualCamera VirtualCamera;
@@ -76,10 +77,19 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         isJumping = true;
     }
-    
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
 
     public void Start()
     {
+        
         rb = this.GetComponent<Rigidbody>();
 
         animator = GetComponentInChildren<Animator>();
@@ -90,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         isJumping = false;
-        initialJumpForce = jumpForce;
+       jumpForce =  initialJumpForce;
     }
 
     private void FixedUpdate()
@@ -120,11 +130,13 @@ public class PlayerMovement : MonoBehaviour
         
         if (movement.magnitude <= 0)
         {
+            print("idle should be playing");
             animator.SetFloat("Speed", 0, 0.01f, Time.deltaTime);
         }
 
         else
         {
+            print("walk should be playing");
             animator.SetFloat("Speed", 0.9f, 0.01f, Time.deltaTime);
         }
 
@@ -143,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         Vector3 jumpForces = Vector3.zero;
+        lookRotation = Mathf.Clamp(lookRotation, -140, 90);
 
         if (grounded && canJump && jumpCount < 5)
         {
@@ -202,6 +215,19 @@ public class PlayerMovement : MonoBehaviour
         print("in set grounded");
         grounded = state;
         canJump = true;
+    }
+
+    public void reduceJumpForce(int reduction)
+    {
+     
+            /*playerInBubble = true;*/
+            spiderEffectDuration += Time.deltaTime;
+        
+            if (spiderEffectDuration >= 3)
+            {
+                jumpForce = initialJumpForce;
+               }
+        
     }
     
 }

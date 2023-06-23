@@ -21,6 +21,14 @@ public class GoldenFishCollectible : MonoBehaviour
 
             collected = true;
             canCollide = false;
+            
+            GameObject healthCollectible = this.gameObject;
+            AkGameObj akGameObj = healthCollectible.GetComponent<AkGameObj>();
+            if (akGameObj != null)
+            {
+                // Trigger the sound event on the player object
+                AkSoundEngine.PostEvent("Play_collectGoldenFish", akGameObj.gameObject);
+            }
         }
     }
     

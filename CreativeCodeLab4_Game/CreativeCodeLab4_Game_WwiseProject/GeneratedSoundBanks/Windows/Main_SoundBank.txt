@@ -1,0 +1,29 @@
+Event	ID	Name			Wwise Object Path	Notes
+	392973816	Play_spiderLaugh			\Default Work Unit\Play_spiderLaugh	
+	1177474249	Play_rocketRumble			\Default Work Unit\Play_rocketRumble	
+	1312347929	Play_collectGoldenFish			\Default Work Unit\Play_collectGoldenFish	
+	2343924725	Play_portalBackgroundSound			\Default Work Unit\Play_portalBackgroundSound	
+	2385628198	Footsteps			\Default Work Unit\Footsteps	
+	2780214870	Play_asteroidRumble			\Default Work Unit\Play_asteroidRumble	
+	2972556865	Play_ballCollect			\Default Work Unit\Play_ballCollect	
+	3100425318	Play_fishCollect			\Default Work Unit\Play_fishCollect	
+	3799534504	Play_bgSound			\Default Work Unit\Play_bgSound	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	76116694	step3	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step3_805C58FE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Heel\step3		12756
+	97867071	step4	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step4_C2C4F0FA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Heel\step4		15140
+	126328529	step2	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step2_AB8DFA65.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Toe\step2		20724
+	161742379	collectGoldenFish	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\collectGoldenFish_6DF8E762.wem		\Actor-Mixer Hierarchy\Default Work Unit\Collectibles\collectGoldenFish		339832
+	195557660	step3	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step3_298B8A1B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Toe\step3		16296
+	204900015	rocketRumble	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\rocketRumble_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PositionBased\rocketRumble		6791068
+	217122684	fishCollect	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\fishCollect_1A669F6A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Collectibles\fishCollect		57068
+	290638894	spiderLaugh	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\spiderLaugh_D4BC77C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\spiderLaugh		238256
+	466640540	step2	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step2_B61B13E1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Heel\step2		15408
+	478722547	step1	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step1_ACC8362D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Heel\step1		16148
+	530950594	asteroidRumble	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\asteroidRumble_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PositionBased\asteroidRumble		1470064
+	564128552	bgSound	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\bgSound_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgSound		8602584
+	619871265	portalBackgroundSound	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\portalBackgroundSound_79C6BF4F.wem		\Actor-Mixer Hierarchy\Default Work Unit\PositionBased\portalBackgroundSound		2494136
+	892501343	ballCollect	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\ballCollect_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Collectibles\ballCollect		267328
+	953807408	step4	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step4_08F90A9D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Toe\step4		16144
+	1026635645	step1	Y:\Desktop\CreativeCodelab4\CreativeCodeLab4_Game\CreativeCodeLab4_Game_WwiseProject\.cache\Windows\SFX\step1_87A87F8A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Footstep_Toe\step1		12756
+

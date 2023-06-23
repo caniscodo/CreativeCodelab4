@@ -38,7 +38,7 @@ public class RocketMovement : MonoBehaviour
     {
         if (transform.position == endPoint.position)
         {
-            Destroy(gameObject);
+            print("rocket end");
         }
         
     }

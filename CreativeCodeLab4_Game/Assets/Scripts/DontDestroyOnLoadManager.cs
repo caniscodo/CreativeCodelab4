@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DontDestroyOnLoadManager : MonoBehaviour
@@ -5,6 +6,11 @@ public class DontDestroyOnLoadManager : MonoBehaviour
     private static DontDestroyOnLoadManager instance;
 
     private void Awake()
+    {
+        
+    }
+
+    private void Start()
     {
         // Check if an instance already exists
         if (instance == null)

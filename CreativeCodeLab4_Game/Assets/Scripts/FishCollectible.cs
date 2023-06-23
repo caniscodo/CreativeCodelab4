@@ -19,7 +19,13 @@ public class FishCollectible : MonoBehaviour
             Destroy(this.gameObject);
 
             collected = true;
-
+            GameObject healthCollectible = this.gameObject;
+            AkGameObj akGameObj = healthCollectible.GetComponent<AkGameObj>();
+            if (akGameObj != null)
+            {
+                // Trigger the sound event on the player object
+                AkSoundEngine.PostEvent("Play_fishCollect", akGameObj.gameObject);
+            }
         }
     }
 

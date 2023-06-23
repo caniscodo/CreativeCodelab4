@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{570CF739-92D5-4BBB-AB24-F4314422C72B}" SchemaVersion="103">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{570CF739-92D5-4BBB-AB24-F4314422C72B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main_SoundBank" ID="{CD0E507C-65CB-4586-9D40-6CF0564D1A47}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_bgSound" ID="{91029B20-0F6D-40BF-96B1-D1F2FF2E3BEC}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_spiderLaugh" ID="{9F84F2F0-4B96-4224-9394-34643DB12717}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_asteroidRumble" ID="{EA857471-4F62-4550-9C33-4E14A212005A}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_rocketRumble" ID="{F48BD82C-004A-46DC-949E-C0452F694E88}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Footsteps" ID="{C5BB2A07-6C4F-481B-BD7D-7DCD94E2A28A}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ballCollect" ID="{67244E0B-12C1-4981-AC79-ED9AAC76E6CD}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_collectGoldenFish" ID="{2E402DCD-6E2E-4AE4-9E2A-630C0B9B1FA3}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="portalBackgroundSound" ID="{5BA9C22C-CDCB-4D23-B82C-A50F2C3A14E3}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_fishCollect" ID="{A6C61BDC-61FD-4DAA-90D3-817DAFE0FD55}" WorkUnitID="{77F43F4A-8A22-4302-B335-C054966C5FED}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

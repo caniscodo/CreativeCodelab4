@@ -1,105 +1,47 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum CheckMethod
-{
-    Distance,
-    Trigger
-}
 public class ScenePartLoader : MonoBehaviour
 {
-    /*
-    private PortalOpener PortalOpener;
-    private bool isStandingInPortal;
-    */
-    
     public Transform player;
-    public CheckMethod checkMethod;
     public float loadRange;
 
-    //Scene state
     private bool isLoaded;
-    private bool shouldLoad;
-    void Start()
+    private Scene loadedScene;
+
+    private void Start()
     {
-      
-        //verify if the scene is already open to avoid opening a scene twice
-        if (SceneManager.sceneCount > 0)
-        {
-            for (int i = 0; i < SceneManager.sceneCount; ++i)
-            {
-                Scene scene = SceneManager.GetSceneAt(i);
-                if (scene.name == gameObject.name)
-                {
-                    print(scene.name);
-                    isLoaded = true;
-                }
-            }
-        }
-        
-        
+        // Verify if the scene is already open to avoid opening a scene twice
+        Scene targetScene = SceneManager.GetSceneByName(gameObject.name);
+        isLoaded = targetScene.isLoaded;
+        loadedScene = targetScene;
     }
 
-    void Update()
+    private void LoadScene()
     {
-        //Fix this Line because not efficient! Only added because i need to always check for value in update
-        /*PortalOpener = GameObject.Find("Portal").GetComponent<PortalOpener>();*/
-        
-        
-        //Checking which method to use
-        if (checkMethod == CheckMethod.Distance)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
+        asyncLoad.completed += (operation) =>
         {
-            DistanceCheck();
-        }
-        else if (checkMethod == CheckMethod.Trigger)
-        {
-            TriggerCheck();
-        }
+            loadedScene = SceneManager.GetSceneByName(gameObject.name);
+            SceneManager.SetActiveScene(loadedScene);
+        };
+        isLoaded = true;
     }
 
-    void DistanceCheck()
+    private void UnloadScene()
     {
-        //Checking if the player is within the range
-        if (Vector3.Distance(player.position, transform.position) < loadRange)
-        {
-            LoadScene();
-        }
-        else
-        {
-            UnLoadScene();
-        }
-    }
-
-    void LoadScene()
-    {
-        /*print($"in Sceneloader the portal is {PortalOpener.IsStandingInPortal}");*/
-        if (!isLoaded)
-        {
-            print(gameObject.name);
-            //Loading the scene, using the gameobject name as it's the same as the name of the scene to load
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
-            //We set it to true to avoid loading the scene twice
-            isLoaded = true;
-        }
-        
-    }
-
-    void UnLoadScene()
-    {
-        if (isLoaded)
-        {
-            print(gameObject.name);
-            SceneManager.UnloadSceneAsync(gameObject.name);
-            isLoaded = false;
-        }
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(gameObject.name);
+        asyncUnload.completed += (operation) => isLoaded = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            shouldLoad = true;
+            if (!isLoaded)
+            {
+                LoadScene();
+            }
         }
     }
 
@@ -107,23 +49,10 @@ public class ScenePartLoader : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            shouldLoad = false;
+            if (isLoaded)
+            {
+                UnloadScene();
+            }
         }
     }
-
-    void TriggerCheck()
-    {
-        //shouldLoad is set from the Trigger methods
-        if (shouldLoad)
-        {
-            LoadScene();
-        }
-        else
-        {
-            UnLoadScene();
-        }
-    }
-
-
-
 }

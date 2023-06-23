@@ -28,6 +28,14 @@ public class HealthCollectible : MonoBehaviour
             collected = true;
             canCollide = false;
             StartCoroutine(ResetCollisionCooldown());
+
+            GameObject healthCollectible = this.gameObject;
+            AkGameObj akGameObj = healthCollectible.GetComponent<AkGameObj>();
+            if (akGameObj != null)
+            {
+                // Trigger the sound event on the player object
+                AkSoundEngine.PostEvent("Play_ballCollect", akGameObj.gameObject);
+            }
         }
     }
 
@@ -39,4 +47,6 @@ public class HealthCollectible : MonoBehaviour
        
             
     }
+    
+    
 }

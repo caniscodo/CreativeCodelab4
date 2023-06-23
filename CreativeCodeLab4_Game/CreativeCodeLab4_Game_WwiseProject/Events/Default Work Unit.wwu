@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{77F43F4A-8A22-4302-B335-C054966C5FED}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{77F43F4A-8A22-4302-B335-C054966C5FED}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_bgSound" ID="{91029B20-0F6D-40BF-96B1-D1F2FF2E3BEC}">
+					<ChildrenList>
+						<Action Name="" ID="{22FF7A5F-C683-43CC-BEAA-4E38523EC528}" ShortID="465846264">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgSound" ID="{74FDF829-4B06-498F-BE76-B2EEF5CCC3EC}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_collectGoldenFish" ID="{2E402DCD-6E2E-4AE4-9E2A-630C0B9B1FA3}">
+					<ChildrenList>
+						<Action Name="" ID="{219C33DC-B127-4C12-8456-91270DC6682B}" ShortID="431414814">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="collectGoldenFish" ID="{077D5A77-02CA-49F8-B315-144014EE7ED1}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_fishCollect" ID="{A6C61BDC-61FD-4DAA-90D3-817DAFE0FD55}">
+					<ChildrenList>
+						<Action Name="" ID="{ECAD88C2-7F4B-4C27-AE11-AC61D68F6044}" ShortID="408580539">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="fishCollect" ID="{2BD8F635-0432-41CA-97B7-62B64354CE5A}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_portalBackgroundSound" ID="{9E57A22E-7877-4DE4-A96B-A63F6CD84C24}">
+					<ChildrenList>
+						<Action Name="" ID="{5A12E429-CD2D-44D0-9314-B1802DD8AE4F}" ShortID="1023222385">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="portalBackgroundSound" ID="{5BA9C22C-CDCB-4D23-B82C-A50F2C3A14E3}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_rocketRumble" ID="{F48BD82C-004A-46DC-949E-C0452F694E88}">
+					<ChildrenList>
+						<Action Name="" ID="{C8454BE9-2DAE-461F-9D46-CF5147001C26}" ShortID="453930667">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="rocketRumble" ID="{0EB593AD-C4AC-4A2C-A2BC-C5B6003307BD}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Footsteps" ID="{C5BB2A07-6C4F-481B-BD7D-7DCD94E2A28A}">
+					<ChildrenList>
+						<Action Name="" ID="{8F5BDBFD-D912-452F-B4BD-525327C76BE8}" ShortID="606303511">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps" ID="{E818989F-9AC4-4A7E-91F2-E5CDB3979D1B}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_asteroidRumble" ID="{EA857471-4F62-4550-9C33-4E14A212005A}">
+					<ChildrenList>
+						<Action Name="" ID="{DEA2561E-754E-45F0-94DE-EC71C5C66F8D}" ShortID="169694600">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="asteroidRumble" ID="{CEAFCFBB-5563-4AC6-8778-9F5E0796CA6C}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_spiderLaugh" ID="{9F84F2F0-4B96-4224-9394-34643DB12717}">
+					<ChildrenList>
+						<Action Name="" ID="{05706420-4F0C-4AF2-A99E-889202DDF8A5}" ShortID="166927663">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="spiderLaugh" ID="{47FBB0C6-4BF1-4584-B271-922A3B50B177}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ballCollect" ID="{67244E0B-12C1-4981-AC79-ED9AAC76E6CD}">
+					<ChildrenList>
+						<Action Name="" ID="{EAB9C611-3F36-4EFD-B104-232B405B7883}" ShortID="212104075">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ballCollect" ID="{0EEB2241-EEC1-43B5-91D0-775E4966A972}" WorkUnitID="{A48494C7-20D8-4EBD-AEA9-DC9F0F051A26}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

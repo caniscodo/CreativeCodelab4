@@ -12,9 +12,9 @@ public class SpiderCollisionTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player")) 
+        if (collision.gameObject.CompareTag("Player"))
         {
-            animator.SetBool("OnPlayerCollision", true);
+            animator.SetTrigger("SpiderTriggered");
         }
     }
 }
