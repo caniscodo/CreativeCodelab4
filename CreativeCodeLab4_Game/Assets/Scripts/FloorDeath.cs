@@ -19,9 +19,12 @@ public class FloorDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(gameObject.CompareTag("Player"))
-        print("floor killed kitty");
-        GlobalData.instance.decreaseHealth(5);
+        if (gameObject.CompareTag("Player"))
+        {
+            MenuManager.instance.GameOver();
+        }
+        
+
 
     }
 }

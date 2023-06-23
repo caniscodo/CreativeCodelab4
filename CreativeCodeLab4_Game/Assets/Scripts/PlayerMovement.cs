@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
-
     public CinemachineVirtualCamera VirtualCamera;
     public Rigidbody rb;
 
@@ -71,6 +70,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }   
     
+    private void Shoot()
+    {
+        var em = ps.isEmitting;
+        em = true;
+        animator.SetTrigger(("Shoot"));
+        print("playerShootingInMovement");
+    }
+    
     
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -91,23 +98,24 @@ public class PlayerMovement : MonoBehaviour
     {
         
         rb = this.GetComponent<Rigidbody>();
-
+        VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         animator = GetComponentInChildren<Animator>();
         ps  = GetComponentInChildren<ParticleSystem>();
+        
         var em = ps.isEmitting;
         em = false;
         
-        VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        Cursor.lockState = CursorLockMode.Locked;
+        /*Cursor.lockState = CursorLockMode.Locked;*/
+        
         isJumping = false;
         initialJumpForce = jumpForce;
     }
 
     private void FixedUpdate()
     {
-        print(grounded);
+        print(grounded); 
         Move();
-       setGrounded(grounded);
+        setGrounded(grounded);
      
     }
 
@@ -142,13 +150,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void Look()
+    /*private void Look()
     {
         lookRotation += (-look.y * sensitivity);
-        lookRotation = Mathf.Clamp(lookRotation, -90, 90);
-        VirtualCamera.transform.eulerAngles = new Vector3(lookRotation, VirtualCamera.transform.eulerAngles.y,
-            VirtualCamera.transform.eulerAngles.z);
-    }
+        lookRotation = Mathf.Clamp(lookRotation, -70, 90);
+        VirtualCamera.transform.eulerAngles = new Vector3(lookRotation, VirtualCamera.transform.eulerAngles.y, VirtualCamera.transform.eulerAngles.z);
+    }*/
 
   
 
@@ -188,13 +195,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Shoot()
-    {
-        var em = ps.isEmitting;
-        em = true;
-        animator.SetTrigger(("Shoot"));
-        print("playerShootingInMovement");
-    }
+ 
 
     private void LateUpdate()
     {
@@ -206,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
             em.enabled = false;
         }
 
-        Look();
+        /*Look();*/
 
     }
 

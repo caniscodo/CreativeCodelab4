@@ -1,8 +1,94 @@
+/*
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ScenePartLoader : MonoBehaviour
 {
+    // Load Scenes in predefined Level Area of Triggers
+    public Transform player;
+    public float loadRange;
+
+    private int buildIndex;
+    private bool[] isLoaded;
+
+    private void Start()
+    {
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
+        isLoaded = new bool[SceneManager.sceneCountInBuildSettings];
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            Scene targetScene = SceneManager.GetSceneByBuildIndex(i);
+            isLoaded[i] = targetScene.isLoaded;
+        }
+
+        for (int i = buildIndex + 1; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            if (!isLoaded[i])
+            {
+                LoadScene(i);
+            }
+            else
+            {
+                isLoaded[i] = true; // Set the flag to true for scenes that are already loaded
+            }
+        }
+    }
+
+    private void LoadScene(int buildIndex)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
+        asyncLoad.completed += (operation) =>
+        {
+            isLoaded[buildIndex] = true;
+        };
+    }
+
+    private void UnloadScene(int buildIndex)
+    {
+        if (isLoaded[buildIndex])
+        {
+            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(buildIndex);
+            asyncUnload.completed += (operation) => isLoaded[buildIndex] = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            for (int i = buildIndex + 1; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                if (!isLoaded[i])
+                {
+                    LoadScene(i);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            for (int i = buildIndex + 1; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                if (isLoaded[i])
+                {
+                    UnloadScene(i);
+                }
+            }
+        }
+    }
+}
+*/
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ScenePartLoader : MonoBehaviour
+{
+    //Load Scenes in predefined Level Area of Triggers
     public Transform player;
     public float loadRange;
 
@@ -11,7 +97,7 @@ public class ScenePartLoader : MonoBehaviour
 
     private void Start()
     {
-        // Verify if the scene is already open to avoid opening a scene twice
+       
         Scene targetScene = SceneManager.GetSceneByName(gameObject.name);
         isLoaded = targetScene.isLoaded;
         loadedScene = targetScene;
@@ -32,7 +118,7 @@ public class ScenePartLoader : MonoBehaviour
     {
         AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(gameObject.name);
         asyncUnload.completed += (operation) => isLoaded = false;
-   }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

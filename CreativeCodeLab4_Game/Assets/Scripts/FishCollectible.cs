@@ -19,6 +19,8 @@ public class FishCollectible : MonoBehaviour
             Destroy(this.gameObject);
 
             collected = true;
+            
+            //WWise
             GameObject healthCollectible = this.gameObject;
             AkGameObj akGameObj = healthCollectible.GetComponent<AkGameObj>();
             if (akGameObj != null)

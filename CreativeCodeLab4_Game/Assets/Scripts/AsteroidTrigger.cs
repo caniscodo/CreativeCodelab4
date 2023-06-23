@@ -34,7 +34,7 @@ public class AsteroidTrigger : MonoBehaviour
             
                     
                     
-                    asteroid.transform.position = Vector3.Lerp(currentPosition, targetPosition, moveSpeed * Time.deltaTime);
+                    asteroid.transform.position = Vector3.Lerp(currentPosition, targetPosition, moveSpeed);
                     
                     
         }

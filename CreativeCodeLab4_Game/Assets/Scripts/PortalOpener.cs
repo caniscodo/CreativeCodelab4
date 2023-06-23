@@ -35,7 +35,7 @@ public class PortalOpener : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
             IsStandingInPortal = false;
 
-        if (portalIsOpen = true)
+        if (portalIsOpen == true)
         {
             Destroy(this.gameObject);
         }
