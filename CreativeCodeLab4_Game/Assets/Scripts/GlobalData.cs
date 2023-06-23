@@ -9,6 +9,11 @@ public class GlobalData : MonoBehaviour
 
     public int playerHealth;
     public int initialHealth = 5;
+
+    public int globalFishCounter;
+    public int globalGoldFishCounter;
+    public int airCounter;
+    
     //---
     public int collectedFish { get; private set; }
     public int collectedGoldenFish { get; private set; }
@@ -35,6 +40,8 @@ public class GlobalData : MonoBehaviour
     }
     void Start()
     {
+        globalFishCounter = 0;
+        globalGoldFishCounter = 0;
         playerHealth = initialHealth;
         allFishOfLevelCollected = false;
     }
@@ -101,8 +108,8 @@ public class GlobalData : MonoBehaviour
 
     public void collectFish(int increaseFishBy)
     {
-
-            collectedFish += increaseFishBy;
+        collectedFish += increaseFishBy;
+        globalFishCounter++;
     }
 
     public void collectGoldenFish(int increaseGoldenFishBy)
@@ -115,8 +122,11 @@ public class GlobalData : MonoBehaviour
         else
         {
             collectedGoldenFish += increaseGoldenFishBy;
+            globalGoldFishCounter++;
         }
     }
+    
+    
     
     
     

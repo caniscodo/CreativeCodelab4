@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
     }
 
 
@@ -33,5 +34,11 @@ public class MenuManager : MonoBehaviour
     {
         print("gameover");
         SceneManager.LoadSceneAsync("EndScreen");
+    }
+
+    public void Success()
+    {
+        print("success");
+        SceneManager.LoadSceneAsync("Success");
     }
 }

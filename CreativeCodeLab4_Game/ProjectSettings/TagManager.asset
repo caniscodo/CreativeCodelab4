@@ -15,6 +15,7 @@ TagManager:
   - BubbleCanvas
   - VirtualCamera
   - Destroyable
+  - Fish
   layers:
   - Default
   - TransparentFX
